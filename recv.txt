@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 22 Jun 2021 02:50:16 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Access-Control-Request-Headers: *
+Access-Control-Allow-Credentials: true
+
+294
+{"cityid":"101020200","date":"2021-06-22","week":"\u661f\u671f\u4e8c","update_time":"2021-06-22 09:51","city":"\u95f5\u884c","cityEn":"minhang","country":"\u4e2d\u56fd","countryEn":"China","wea":"\u591a\u4e91","wea_img":"yun","tem":"27","tem1":"29","tem2":"21","win":"\u4e1c\u5357\u98ce","win_speed":"1\u7ea7","win_meter":"5km\/h","humidity":"53%","visibility":"23km","pressure":"1007","air":"39","air_pm25":"39","air_level":"\u4f18","air_tips":"\u7a7a\u6c14\u5f88\u597d\uff0c\u53ef\u4ee5\u5916\u51fa\u6d3b\u52a8\uff0c\u547c\u5438\u65b0\u9c9c\u7a7a\u6c14\uff0c\u62e5\u62b1\u5927\u81ea\u7136\uff01","alarm":{"alarm_type":"","alarm_level":"","alarm_content":""}}
+0
+

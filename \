@@ -1,0 +1,108 @@
+#include"includes.h"
+
+
+static void Epd_Mode(int mode)
+{
+    if (mode == 1)
+    {
+        Paint_SetRotate(ROTATE_0);
+        Paint_SetMirroring(MIRROR_HORIZONTAL);
+    }
+    else
+    {
+        Paint_SetRotate(ROTATE_0);
+        Paint_SetMirroring(MIRROR_NONE);
+    }
+}
+void time2Nums(struct tm *t, char *nums)
+{
+    nums[0] = t->tm_hour / 10;
+    nums[1] = t->tm_hour % 10;
+    nums[2] = t->tm_min / 10;
+    nums[3] = t->tm_min % 10;
+    nums[4] = t->tm_sec / 10;
+    nums[5] = t->tm_sec % 10;
+}
+void SSD(int x, int y, int width, char *type,  char num)
+{
+    char filename[100];
+    sprintf(filename, "/home/pi/Documents/project/ePaper/myPro/pic/%s_%d.bmp",type, num);
+    GUI_ReadBmp(filename, x, y);
+}
+UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)
+{
+    UWORD Panel_Width = Dev_Info.Panel_W;
+    UWORD Panel_Height = Dev_Info.Panel_H;
+    const char decimals = 4;
+    int width = 40;
+    UWORD Dynamic_Area_Width = width * 8;
+    UWORD Dynamic_Area_Height = width * 11;
+
+    UDOUBLE Imagesize;
+
+    //malloc enough memory for 1bp picture first
+    Imagesize = ((Panel_Width * 1 % 8 == 0) ? (Panel_Width * 1 / 8) : (Panel_Width * 1 / 8 + 1)) * Panel_Height;
+    Refresh_Frame_Buf = (UBYTE *)malloc(Imagesize);
+    int x, y;
+    time_t nowTime, lastTime;
+    struct tm *p;
+    char lastTimeSS[decimals], nowTimeSS[decimals];
+    Paint_NewImage(Refresh_Frame_Buf, Dynamic_Area_Width, Dynamic_Area_Height, 0, BLACK);
+    Paint_SelectImage(Refresh_Frame_Buf);
+    Epd_Mode(epd_mode);
+    Paint_SetBitsPerPixel(1);
+    x = 100;
+    y = 100;
+    for (int i = 0; i < decimals; i++)
+    {
+        lastTimeSS[i] = 0;
+        Paint_Clear(WHITE);
+        SSD(0, 0, width,"tim", lastTimeSS[i]);
+        EPD_IT8951_1bp_Refresh_WithoutDisplay(Refresh_Frame_Buf, i * width * 8, 0, Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+    }
+        EPD_IT8951_1bp_Refresh_DisplayOnly(Refresh_Frame_Buf, 0,0,decimals* Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+
+    while (!finishFlag)
+    {
+
+        time(&nowTime);
+
+        if (nowTime != lastTime)
+        {
+            p = localtime(&nowTime);
+            time2Nums(p, nowTimeSS);
+            for (int i = 0; i < decimals; i++)
+            {
+                if (lastTimeSS[i] != nowTimeSS[i])
+                {
+                    Paint_Clear(WHITE);
+                    x = 0;
+                    y = 0;
+                    SSD(x, y, width, nowTimeSS[i]);
+                    EPD_IT8951_1bp_Refresh_WithoutDisplay(Refresh_Frame_Buf, i * width * 8, 0, Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+                    lastTimeSS[i] = nowTimeSS[i];
+                }
+            }
+        EPD_IT8951_1bp_Refresh_DisplayOnly(Refresh_Frame_Buf, 0,0,decimals* Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+
+            lastTime = nowTime;
+
+        }
+		if(temperature!=0){
+				printf("display Temp\n");
+			SSD(0,0,width,temperature/10);
+        	EPD_IT8951_1bp_Refresh_WithoutDisplay(Refresh_Frame_Buf, 0, 11*width, Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+			SSD(0,0,width,temperature%10);
+        	EPD_IT8951_1bp_Refresh_WithoutDisplay(Refresh_Frame_Buf, width*8, 11*width, Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+            EPD_IT8951_1bp_Refresh_DisplayOnly(Refresh_Frame_Buf, 0, 11*width, 2 * Dynamic_Area_Width, Dynamic_Area_Height, A2_Mode, Init_Target_Memory_Addr, true);
+			temperature=0;
+		}	
+    }
+    if (Refresh_Frame_Buf != NULL)
+    {
+        free(Refresh_Frame_Buf);
+        Refresh_Frame_Buf = NULL;
+    }
+
+    return 0;
+}

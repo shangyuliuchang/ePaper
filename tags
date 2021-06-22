@@ -1,0 +1,449 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+A2_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE A2_Mode = 6;$/;"	v
+ARRAY_LEN	lib/GUI/GUI_Paint.c	685;"	d	file:
+ASCII_Width	lib/Fonts/fonts.h	/^  uint16_t ASCII_Width;$/;"	m	struct:__anon2	access:public
+Area_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_H;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+Area_W	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_W;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+Area_X	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_X;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+Area_Y	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_Y;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+BGVR	lib/e-Paper/EPD_IT8951.h	140;"	d
+BLACK	lib/GUI/GUI_Paint.h	113;"	d
+BMPFILEHEADER	lib/GUI/GUI_BMPfile.h	/^}__attribute__((packed)) BMPFILEHEADER; \/\/Tell the compiler to cancel optimal alignment of the structure during compilation$/;"	t	typeref:struct:__anon3
+BMPINFOHEADER	lib/GUI/GUI_BMPfile.h	/^}__attribute__((packed)) BMPINFOHEADER;\/\/Tell the compiler to cancel optimal alignment of the structure during compilation$/;"	t	typeref:struct:__anon4
+BMPRGBQUAD	lib/GUI/GUI_BMPfile.h	/^}__attribute__((packed)) BMPRGBQUAD;\/\/Tell the compiler to cancel optimal alignment of the structure during compilation$/;"	t	typeref:struct:__anon5
+Bitmap_format_Matrix	lib/GUI/GUI_BMPfile.c	/^static void Bitmap_format_Matrix(UBYTE *dst,UBYTE *src)$/;"	f	file:	signature:(UBYTE *dst,UBYTE *src)
+BitsPerPixel	lib/GUI/GUI_Paint.h	/^    UWORD BitsPerPixel;$/;"	m	struct:__anon6	access:public
+CC	Makefile	/^CC = gcc$/;"	m
+CH_CN	lib/Fonts/fonts.h	/^}CH_CN;$/;"	t	typeref:struct:__anon1
+Color	lib/GUI/GUI_Paint.h	/^    UWORD Color;$/;"	m	struct:__anon6	access:public
+DEBUG	Makefile	/^DEBUG = -D USE_DEBUG$/;"	m
+DEV_Delay_ms	lib/Config/DEV_Config.c	/^void DEV_Delay_ms(UDOUBLE xms)$/;"	f	signature:(UDOUBLE xms)
+DEV_Delay_ms	lib/Config/DEV_Config.h	/^void DEV_Delay_ms(UDOUBLE xms);$/;"	p	signature:(UDOUBLE xms)
+DEV_Delay_us	lib/Config/DEV_Config.c	/^void DEV_Delay_us(UDOUBLE xus)$/;"	f	signature:(UDOUBLE xus)
+DEV_Delay_us	lib/Config/DEV_Config.h	/^void DEV_Delay_us(UDOUBLE xus);$/;"	p	signature:(UDOUBLE xus)
+DEV_Digital_Read	lib/Config/DEV_Config.c	/^UBYTE DEV_Digital_Read(UWORD Pin)$/;"	f	signature:(UWORD Pin)
+DEV_Digital_Read	lib/Config/DEV_Config.h	/^UBYTE DEV_Digital_Read(UWORD Pin);$/;"	p	signature:(UWORD Pin)
+DEV_Digital_Write	lib/Config/DEV_Config.c	/^void DEV_Digital_Write(UWORD Pin, UBYTE Value)$/;"	f	signature:(UWORD Pin, UBYTE Value)
+DEV_Digital_Write	lib/Config/DEV_Config.h	/^void DEV_Digital_Write(UWORD Pin, UBYTE Value);$/;"	p	signature:(UWORD Pin, UBYTE Value)
+DEV_GPIO_Init	lib/Config/DEV_Config.c	/^static void DEV_GPIO_Init(void)$/;"	f	file:	signature:(void)
+DEV_GPIO_Mode	lib/Config/DEV_Config.c	/^static void DEV_GPIO_Mode(UWORD Pin, UWORD Mode)$/;"	f	file:	signature:(UWORD Pin, UWORD Mode)
+DEV_Module_Exit	lib/Config/DEV_Config.c	/^void DEV_Module_Exit(void)$/;"	f	signature:(void)
+DEV_Module_Exit	lib/Config/DEV_Config.h	/^void DEV_Module_Exit(void);$/;"	p	signature:(void)
+DEV_Module_Init	lib/Config/DEV_Config.c	/^UBYTE DEV_Module_Init(void)$/;"	f	signature:(void)
+DEV_Module_Init	lib/Config/DEV_Config.h	/^UBYTE DEV_Module_Init(void);$/;"	p	signature:(void)
+DEV_SPI_ReadByte	lib/Config/DEV_Config.c	/^UBYTE DEV_SPI_ReadByte()$/;"	f
+DEV_SPI_ReadByte	lib/Config/DEV_Config.h	/^UBYTE DEV_SPI_ReadByte();$/;"	p	signature:()
+DEV_SPI_WriteByte	lib/Config/DEV_Config.c	/^void DEV_SPI_WriteByte(UBYTE Value)$/;"	f	signature:(UBYTE Value)
+DEV_SPI_WriteByte	lib/Config/DEV_Config.h	/^void DEV_SPI_WriteByte(UBYTE Value);$/;"	p	signature:(UBYTE Value)
+DIR_BIN	Makefile	/^DIR_BIN      = .\/bin$/;"	m
+DIR_Config	Makefile	/^DIR_Config   = .\/lib\/Config$/;"	m
+DIR_EPD	Makefile	/^DIR_EPD      = .\/lib\/e-Paper$/;"	m
+DIR_Examples	Makefile	/^DIR_Examples = .\/examples$/;"	m
+DIR_FONTS	Makefile	/^DIR_FONTS    = .\/lib\/Fonts$/;"	m
+DIR_GUI	Makefile	/^DIR_GUI      = .\/lib\/GUI$/;"	m
+DISPLAY_REG_BASE	lib/e-Paper/EPD_IT8951.h	124;"	d
+DOT_FILL_AROUND	lib/GUI/GUI_Paint.h	/^    DOT_FILL_AROUND  = 1,		\/\/ dot pixel 1 x 1$/;"	e	enum:__anon9
+DOT_FILL_RIGHTUP	lib/GUI/GUI_Paint.h	/^    DOT_FILL_RIGHTUP  , 		\/\/ dot pixel 2 X 2$/;"	e	enum:__anon9
+DOT_PIXEL	lib/GUI/GUI_Paint.h	/^} DOT_PIXEL;$/;"	t	typeref:enum:__anon8
+DOT_PIXEL_1X1	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_1X1  = 1,		\/\/ 1 x 1$/;"	e	enum:__anon8
+DOT_PIXEL_2X2	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_2X2  , 		\/\/ 2 X 2$/;"	e	enum:__anon8
+DOT_PIXEL_3X3	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_3X3  ,		\/\/ 3 X 3$/;"	e	enum:__anon8
+DOT_PIXEL_4X4	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_4X4  ,		\/\/ 4 X 4$/;"	e	enum:__anon8
+DOT_PIXEL_5X5	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_5X5  , 		\/\/ 5 X 5$/;"	e	enum:__anon8
+DOT_PIXEL_6X6	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_6X6  , 		\/\/ 6 X 6$/;"	e	enum:__anon8
+DOT_PIXEL_7X7	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_7X7  , 		\/\/ 7 X 7$/;"	e	enum:__anon8
+DOT_PIXEL_8X8	lib/GUI/GUI_Paint.h	/^    DOT_PIXEL_8X8  , 		\/\/ 8 X 8$/;"	e	enum:__anon8
+DOT_PIXEL_DFT	lib/GUI/GUI_Paint.h	153;"	d
+DOT_STYLE	lib/GUI/GUI_Paint.h	/^} DOT_STYLE;$/;"	t	typeref:enum:__anon9
+DOT_STYLE_DFT	lib/GUI/GUI_Paint.h	162;"	d
+DRAW_FILL	lib/GUI/GUI_Paint.h	/^} DRAW_FILL;$/;"	t	typeref:enum:__anon11
+DRAW_FILL_EMPTY	lib/GUI/GUI_Paint.h	/^    DRAW_FILL_EMPTY = 0,$/;"	e	enum:__anon11
+DRAW_FILL_FULL	lib/GUI/GUI_Paint.h	/^    DRAW_FILL_FULL,$/;"	e	enum:__anon11
+Day	lib/GUI/GUI_Paint.h	/^    UBYTE  Day;   \/\/1 - 30$/;"	m	struct:__anon12	access:public
+Debug	lib/Config/Debug.h	41;"	d
+Debug	lib/Config/Debug.h	43;"	d
+Dev_Info	examples/main.c	/^IT8951_Dev_Info Dev_Info;$/;"	v
+DrawMatrix	lib/GUI/GUI_BMPfile.c	/^static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix)$/;"	f	file:	signature:(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix)
+Dynamic_Refresh_Example	examples/display.c	/^UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)$/;"	f	signature:(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)
+Dynamic_Refresh_Example	examples/display.h	/^UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr);$/;"	p	signature:(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)
+EPD_BUSY_PIN	lib/Config/DEV_Config.h	69;"	d
+EPD_CS_PIN	lib/Config/DEV_Config.h	68;"	d
+EPD_IT8951_1bp_Multi_Frame_Refresh	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_1bp_Multi_Frame_Refresh(UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr)$/;"	f	signature:(UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr)
+EPD_IT8951_1bp_Multi_Frame_Refresh	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_1bp_Multi_Frame_Refresh(UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr);$/;"	p	signature:(UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr)
+EPD_IT8951_1bp_Multi_Frame_Write	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_1bp_Multi_Frame_Write(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr, bool Packed_Write)$/;"	f	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Multi_Frame_Write	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_1bp_Multi_Frame_Write(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr, bool Packed_Write);$/;"	p	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H,UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Refresh	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_1bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)$/;"	f	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Refresh	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_1bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write);$/;"	p	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Refresh_DisplayOnly	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_1bp_Refresh_DisplayOnly(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)$/;"	f	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Refresh_DisplayOnly	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_1bp_Refresh_DisplayOnly(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write);$/;"	p	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Refresh_WithoutDisplay	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_1bp_Refresh_WithoutDisplay(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)$/;"	f	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_1bp_Refresh_WithoutDisplay	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_1bp_Refresh_WithoutDisplay(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write);$/;"	p	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Mode, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_2bp_Refresh	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_2bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)$/;"	f	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_2bp_Refresh	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_2bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write);$/;"	p	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_4bp_Refresh	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_4bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)$/;"	f	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_4bp_Refresh	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_4bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write);$/;"	p	signature:(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+EPD_IT8951_8bp_Refresh	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_8bp_Refresh(UBYTE *Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr)$/;"	f	signature:(UBYTE *Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr)
+EPD_IT8951_8bp_Refresh	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_8bp_Refresh(UBYTE *Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr);$/;"	p	signature:(UBYTE *Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr)
+EPD_IT8951_Clear_Refresh	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_Clear_Refresh(IT8951_Dev_Info Dev_Info,UDOUBLE Target_Memory_Addr, UWORD Mode)$/;"	f	signature:(IT8951_Dev_Info Dev_Info,UDOUBLE Target_Memory_Addr, UWORD Mode)
+EPD_IT8951_Clear_Refresh	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_Clear_Refresh(IT8951_Dev_Info Dev_Info,UDOUBLE Target_Memory_Addr, UWORD Mode);$/;"	p	signature:(IT8951_Dev_Info Dev_Info,UDOUBLE Target_Memory_Addr, UWORD Mode)
+EPD_IT8951_Display_1bp	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_Display_1bp(UWORD X, UWORD Y, UWORD W, UWORD H, UWORD Mode,UDOUBLE Target_Memory_Addr, UBYTE Back_Gray_Val,UBYTE Front_Gray_Val)$/;"	f	file:	signature:(UWORD X, UWORD Y, UWORD W, UWORD H, UWORD Mode,UDOUBLE Target_Memory_Addr, UBYTE Back_Gray_Val,UBYTE Front_Gray_Val)
+EPD_IT8951_Display_Area	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_Display_Area(UWORD X,UWORD Y,UWORD W,UWORD H,UWORD Mode)$/;"	f	file:	signature:(UWORD X,UWORD Y,UWORD W,UWORD H,UWORD Mode)
+EPD_IT8951_Display_AreaBuf	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_Display_AreaBuf(UWORD X,UWORD Y,UWORD W,UWORD H,UWORD Mode, UDOUBLE Target_Memory_Addr)$/;"	f	file:	signature:(UWORD X,UWORD Y,UWORD W,UWORD H,UWORD Mode, UDOUBLE Target_Memory_Addr)
+EPD_IT8951_GetSystemInfo	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_GetSystemInfo(void* Buf)$/;"	f	file:	signature:(void* Buf)
+EPD_IT8951_GetVCOM	lib/e-Paper/EPD_IT8951.c	/^static UWORD EPD_IT8951_GetVCOM(void)$/;"	f	file:	signature:(void)
+EPD_IT8951_HostAreaPackedPixelWrite_1bp	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_HostAreaPackedPixelWrite_1bp(IT8951_Load_Img_Info*Load_Img_Info,IT8951_Area_Img_Info*Area_Img_Info, bool Packed_Write)$/;"	f	file:	signature:(IT8951_Load_Img_Info*Load_Img_Info,IT8951_Area_Img_Info*Area_Img_Info, bool Packed_Write)
+EPD_IT8951_HostAreaPackedPixelWrite_2bp	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_HostAreaPackedPixelWrite_2bp(IT8951_Load_Img_Info*Load_Img_Info, IT8951_Area_Img_Info*Area_Img_Info, bool Packed_Write)$/;"	f	file:	signature:(IT8951_Load_Img_Info*Load_Img_Info, IT8951_Area_Img_Info*Area_Img_Info, bool Packed_Write)
+EPD_IT8951_HostAreaPackedPixelWrite_4bp	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_HostAreaPackedPixelWrite_4bp(IT8951_Load_Img_Info*Load_Img_Info, IT8951_Area_Img_Info*Area_Img_Info, bool Packed_Write)$/;"	f	file:	signature:(IT8951_Load_Img_Info*Load_Img_Info, IT8951_Area_Img_Info*Area_Img_Info, bool Packed_Write)
+EPD_IT8951_HostAreaPackedPixelWrite_8bp	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_HostAreaPackedPixelWrite_8bp(IT8951_Load_Img_Info*Load_Img_Info,IT8951_Area_Img_Info*Area_Img_Info)$/;"	f	file:	signature:(IT8951_Load_Img_Info*Load_Img_Info,IT8951_Area_Img_Info*Area_Img_Info)
+EPD_IT8951_Init	lib/e-Paper/EPD_IT8951.c	/^IT8951_Dev_Info EPD_IT8951_Init(UWORD VCOM)$/;"	f	signature:(UWORD VCOM)
+EPD_IT8951_Init	lib/e-Paper/EPD_IT8951.h	/^IT8951_Dev_Info EPD_IT8951_Init(UWORD VCOM);$/;"	p	signature:(UWORD VCOM)
+EPD_IT8951_LoadImgAreaStart	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_LoadImgAreaStart( IT8951_Load_Img_Info* Load_Img_Info, IT8951_Area_Img_Info* Area_Img_Info )$/;"	f	file:	signature:( IT8951_Load_Img_Info* Load_Img_Info, IT8951_Area_Img_Info* Area_Img_Info )
+EPD_IT8951_LoadImgEnd	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_LoadImgEnd(void)$/;"	f	file:	signature:(void)
+EPD_IT8951_LoadImgStart	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_LoadImgStart( IT8951_Load_Img_Info* Load_Img_Info )$/;"	f	file:	signature:( IT8951_Load_Img_Info* Load_Img_Info )
+EPD_IT8951_ReadBusy	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_ReadBusy(void)$/;"	f	file:	signature:(void)
+EPD_IT8951_ReadData	lib/e-Paper/EPD_IT8951.c	/^static UWORD EPD_IT8951_ReadData()$/;"	f	file:
+EPD_IT8951_ReadMultiData	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_ReadMultiData(UWORD* Data_Buf, UDOUBLE Length)$/;"	f	file:	signature:(UWORD* Data_Buf, UDOUBLE Length)
+EPD_IT8951_ReadReg	lib/e-Paper/EPD_IT8951.c	/^static UWORD EPD_IT8951_ReadReg(UWORD Reg_Address)$/;"	f	file:	signature:(UWORD Reg_Address)
+EPD_IT8951_Reset	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_Reset(void)$/;"	f	file:	signature:(void)
+EPD_IT8951_SetTargetMemoryAddr	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_SetTargetMemoryAddr(UDOUBLE Target_Memory_Addr)$/;"	f	file:	signature:(UDOUBLE Target_Memory_Addr)
+EPD_IT8951_SetVCOM	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_SetVCOM(UWORD VCOM)$/;"	f	file:	signature:(UWORD VCOM)
+EPD_IT8951_Sleep	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_Sleep(void)$/;"	f	signature:(void)
+EPD_IT8951_Sleep	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_Sleep(void);$/;"	p	signature:(void)
+EPD_IT8951_Standby	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_Standby(void)$/;"	f	signature:(void)
+EPD_IT8951_Standby	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_Standby(void);$/;"	p	signature:(void)
+EPD_IT8951_SystemRun	lib/e-Paper/EPD_IT8951.c	/^void EPD_IT8951_SystemRun(void)$/;"	f	signature:(void)
+EPD_IT8951_SystemRun	lib/e-Paper/EPD_IT8951.h	/^void EPD_IT8951_SystemRun(void);$/;"	p	signature:(void)
+EPD_IT8951_WaitForDisplayReady	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_WaitForDisplayReady(void)$/;"	f	file:	signature:(void)
+EPD_IT8951_WriteCommand	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_WriteCommand(UWORD Command)$/;"	f	file:	signature:(UWORD Command)
+EPD_IT8951_WriteData	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_WriteData(UWORD Data)$/;"	f	file:	signature:(UWORD Data)
+EPD_IT8951_WriteMuitiData	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_WriteMuitiData(UWORD* Data_Buf, UDOUBLE Length)$/;"	f	file:	signature:(UWORD* Data_Buf, UDOUBLE Length)
+EPD_IT8951_WriteMultiArg	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_WriteMultiArg(UWORD Arg_Cmd, UWORD* Arg_Buf, UWORD Arg_Num)$/;"	f	file:	signature:(UWORD Arg_Cmd, UWORD* Arg_Buf, UWORD Arg_Num)
+EPD_IT8951_WriteReg	lib/e-Paper/EPD_IT8951.c	/^static void EPD_IT8951_WriteReg(UWORD Reg_Address,UWORD Reg_Value)$/;"	f	file:	signature:(UWORD Reg_Address,UWORD Reg_Value)
+EPD_RST_PIN	lib/Config/DEV_Config.h	67;"	d
+Endian_Type	lib/e-Paper/EPD_IT8951.h	/^    UWORD    Endian_Type;         \/\/little or Big Endian$/;"	m	struct:IT8951_Load_Img_Info	access:public
+Enhance	examples/main.c	5;"	d	file:
+Enhance_Driving_Capability	lib/e-Paper/EPD_IT8951.c	/^void Enhance_Driving_Capability(void)$/;"	f	signature:(void)
+Enhance_Driving_Capability	lib/e-Paper/EPD_IT8951.h	/^void Enhance_Driving_Capability(void);$/;"	p	signature:(void)
+Epd_Mode	examples/display.c	/^static void Epd_Mode(int mode)$/;"	f	file:	signature:(int mode)
+FONT_BACKGROUND	lib/GUI/GUI_Paint.h	117;"	d
+FONT_FOREGROUND	lib/GUI/GUI_Paint.h	116;"	d
+FW_Version	lib/e-Paper/EPD_IT8951.h	/^    UWORD FW_Version[8];$/;"	m	struct:IT8951_Dev_Info	access:public
+Font12	lib/Fonts/font12.c	/^sFONT Font12 = {$/;"	v
+Font12CN	lib/Fonts/font12CN.c	/^cFONT Font12CN = {$/;"	v
+Font12CN_Table	lib/Fonts/font12CN.c	/^const CH_CN Font12CN_Table[] = $/;"	v
+Font12_Table	lib/Fonts/font12.c	/^const uint8_t Font12_Table[] = $/;"	v
+Font16	lib/Fonts/font16.c	/^sFONT Font16 = {$/;"	v
+Font16_Table	lib/Fonts/font16.c	/^const uint8_t Font16_Table[] = $/;"	v
+Font20	lib/Fonts/font20.c	/^sFONT Font20 = {$/;"	v
+Font20_Table	lib/Fonts/font20.c	/^const uint8_t Font20_Table[] = $/;"	v
+Font24	lib/Fonts/font24.c	/^sFONT Font24 = {$/;"	v
+Font24CN	lib/Fonts/font24CN.c	/^cFONT Font24CN = {$/;"	v
+Font24CN_Table	lib/Fonts/font24CN.c	/^const CH_CN Font24CN_Table[] = $/;"	v
+Font24_Table	lib/Fonts/font24.c	/^const uint8_t Font24_Table [] = $/;"	v
+Font8	lib/Fonts/font8.c	/^sFONT Font8 = {$/;"	v
+Font8_Table	lib/Fonts/font8.c	/^const uint8_t Font8_Table[] = $/;"	v
+Four_Byte_Align	examples/main.c	/^bool Four_Byte_Align = false;$/;"	v
+GC16_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE GC16_Mode = 2;$/;"	v
+GUI_ReadBmp	lib/GUI/GUI_BMPfile.c	/^UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)$/;"	f	signature:(const char *path, UWORD x, UWORD y)
+GUI_ReadBmp	lib/GUI/GUI_BMPfile.h	/^UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y);$/;"	p	signature:(const char *path, UWORD x, UWORD y)
+GrayScale	lib/GUI/GUI_Paint.h	/^    UWORD GrayScale;$/;"	m	struct:__anon6	access:public
+Handler	examples/main.c	/^void Handler(int signo)$/;"	f	signature:(int signo)
+Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:__anon2	access:public
+Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:_tFont	access:public
+Height	lib/GUI/GUI_Paint.h	/^    UWORD Height;$/;"	m	struct:__anon6	access:public
+HeightByte	lib/GUI/GUI_Paint.h	/^    UWORD HeightByte;$/;"	m	struct:__anon6	access:public
+HeightMemory	lib/GUI/GUI_Paint.h	/^    UWORD HeightMemory;$/;"	m	struct:__anon6	access:public
+Hour	lib/GUI/GUI_Paint.h	/^    UBYTE  Hour;  \/\/0 - 23$/;"	m	struct:__anon12	access:public
+I80CPCR	lib/e-Paper/EPD_IT8951.h	146;"	d
+IMAGE_BACKGROUND	lib/GUI/GUI_Paint.h	115;"	d
+INIT_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE INIT_Mode = 0;$/;"	v
+IT8951_2BPP	lib/e-Paper/EPD_IT8951.h	111;"	d
+IT8951_3BPP	lib/e-Paper/EPD_IT8951.h	112;"	d
+IT8951_4BPP	lib/e-Paper/EPD_IT8951.h	113;"	d
+IT8951_8BPP	lib/e-Paper/EPD_IT8951.h	114;"	d
+IT8951_Area_Img_Info	lib/e-Paper/EPD_IT8951.h	/^typedef struct IT8951_Area_Img_Info$/;"	s
+IT8951_Area_Img_Info	lib/e-Paper/EPD_IT8951.h	/^}IT8951_Area_Img_Info;$/;"	t	typeref:struct:IT8951_Area_Img_Info
+IT8951_Area_Img_Info::Area_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_H;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+IT8951_Area_Img_Info::Area_W	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_W;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+IT8951_Area_Img_Info::Area_X	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_X;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+IT8951_Area_Img_Info::Area_Y	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_Y;$/;"	m	struct:IT8951_Area_Img_Info	access:public
+IT8951_Dev_Info	lib/e-Paper/EPD_IT8951.h	/^typedef struct IT8951_Dev_Info$/;"	s
+IT8951_Dev_Info	lib/e-Paper/EPD_IT8951.h	/^}IT8951_Dev_Info;$/;"	t	typeref:struct:IT8951_Dev_Info
+IT8951_Dev_Info::FW_Version	lib/e-Paper/EPD_IT8951.h	/^    UWORD FW_Version[8];$/;"	m	struct:IT8951_Dev_Info	access:public
+IT8951_Dev_Info::LUT_Version	lib/e-Paper/EPD_IT8951.h	/^    UWORD LUT_Version[8];$/;"	m	struct:IT8951_Dev_Info	access:public
+IT8951_Dev_Info::Memory_Addr_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Memory_Addr_H;$/;"	m	struct:IT8951_Dev_Info	access:public
+IT8951_Dev_Info::Memory_Addr_L	lib/e-Paper/EPD_IT8951.h	/^    UWORD Memory_Addr_L;$/;"	m	struct:IT8951_Dev_Info	access:public
+IT8951_Dev_Info::Panel_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Panel_H;$/;"	m	struct:IT8951_Dev_Info	access:public
+IT8951_Dev_Info::Panel_W	lib/e-Paper/EPD_IT8951.h	/^    UWORD Panel_W;$/;"	m	struct:IT8951_Dev_Info	access:public
+IT8951_LDIMG_B_ENDIAN	lib/e-Paper/EPD_IT8951.h	118;"	d
+IT8951_LDIMG_L_ENDIAN	lib/e-Paper/EPD_IT8951.h	117;"	d
+IT8951_Load_Img_Info	lib/e-Paper/EPD_IT8951.h	/^typedef struct IT8951_Load_Img_Info$/;"	s
+IT8951_Load_Img_Info	lib/e-Paper/EPD_IT8951.h	/^}IT8951_Load_Img_Info;$/;"	t	typeref:struct:IT8951_Load_Img_Info
+IT8951_Load_Img_Info::Endian_Type	lib/e-Paper/EPD_IT8951.h	/^    UWORD    Endian_Type;         \/\/little or Big Endian$/;"	m	struct:IT8951_Load_Img_Info	access:public
+IT8951_Load_Img_Info::Pixel_Format	lib/e-Paper/EPD_IT8951.h	/^    UWORD    Pixel_Format;        \/\/bpp$/;"	m	struct:IT8951_Load_Img_Info	access:public
+IT8951_Load_Img_Info::Rotate	lib/e-Paper/EPD_IT8951.h	/^    UWORD    Rotate;              \/\/Rotate mode$/;"	m	struct:IT8951_Load_Img_Info	access:public
+IT8951_Load_Img_Info::Source_Buffer_Addr	lib/e-Paper/EPD_IT8951.h	/^    UDOUBLE  Source_Buffer_Addr;  \/\/Start address of source Frame buffer$/;"	m	struct:IT8951_Load_Img_Info	access:public
+IT8951_Load_Img_Info::Target_Memory_Addr	lib/e-Paper/EPD_IT8951.h	/^    UDOUBLE  Target_Memory_Addr;  \/\/Base address of target image buffer$/;"	m	struct:IT8951_Load_Img_Info	access:public
+IT8951_ROTATE_0	lib/e-Paper/EPD_IT8951.h	105;"	d
+IT8951_ROTATE_180	lib/e-Paper/EPD_IT8951.h	107;"	d
+IT8951_ROTATE_270	lib/e-Paper/EPD_IT8951.h	108;"	d
+IT8951_ROTATE_90	lib/e-Paper/EPD_IT8951.h	106;"	d
+IT8951_TCON_LD_IMG	lib/e-Paper/EPD_IT8951.h	90;"	d
+IT8951_TCON_LD_IMG_AREA	lib/e-Paper/EPD_IT8951.h	91;"	d
+IT8951_TCON_LD_IMG_END	lib/e-Paper/EPD_IT8951.h	92;"	d
+IT8951_TCON_MEM_BST_END	lib/e-Paper/EPD_IT8951.h	88;"	d
+IT8951_TCON_MEM_BST_RD_S	lib/e-Paper/EPD_IT8951.h	86;"	d
+IT8951_TCON_MEM_BST_RD_T	lib/e-Paper/EPD_IT8951.h	85;"	d
+IT8951_TCON_MEM_BST_WR	lib/e-Paper/EPD_IT8951.h	87;"	d
+IT8951_TCON_REG_RD	lib/e-Paper/EPD_IT8951.h	82;"	d
+IT8951_TCON_REG_WR	lib/e-Paper/EPD_IT8951.h	83;"	d
+IT8951_TCON_SLEEP	lib/e-Paper/EPD_IT8951.h	81;"	d
+IT8951_TCON_STANDBY	lib/e-Paper/EPD_IT8951.h	80;"	d
+IT8951_TCON_SYS_RUN	lib/e-Paper/EPD_IT8951.h	79;"	d
+Image	lib/GUI/GUI_Paint.h	/^    UBYTE *Image;$/;"	m	struct:__anon6	access:public
+Init_Target_Memory_Addr	examples/main.c	/^UDOUBLE Init_Target_Memory_Addr;$/;"	v
+LIB	Makefile	/^LIB = -lbcm2835 -lm -lrt -lpthread$/;"	m
+LINE_STYLE	lib/GUI/GUI_Paint.h	/^} LINE_STYLE;$/;"	t	typeref:enum:__anon10
+LINE_STYLE_DOTTED	lib/GUI/GUI_Paint.h	/^    LINE_STYLE_DOTTED,$/;"	e	enum:__anon10
+LINE_STYLE_SOLID	lib/GUI/GUI_Paint.h	/^    LINE_STYLE_SOLID = 0,$/;"	e	enum:__anon10
+LISAR	lib/e-Paper/EPD_IT8951.h	151;"	d
+LUT01AF	lib/e-Paper/EPD_IT8951.h	131;"	d
+LUT0ABFRV	lib/e-Paper/EPD_IT8951.h	136;"	d
+LUT0BADDR	lib/e-Paper/EPD_IT8951.h	129;"	d
+LUT0EWHR	lib/e-Paper/EPD_IT8951.h	127;"	d
+LUT0IMXY	lib/e-Paper/EPD_IT8951.h	138;"	d
+LUT0MFN	lib/e-Paper/EPD_IT8951.h	130;"	d
+LUT0XYR	lib/e-Paper/EPD_IT8951.h	128;"	d
+LUTAFSR	lib/e-Paper/EPD_IT8951.h	139;"	d
+LUT_Version	lib/e-Paper/EPD_IT8951.h	/^    UWORD LUT_Version[8];$/;"	m	struct:IT8951_Dev_Info	access:public
+MAX_HEIGHT_FONT	lib/Fonts/fonts.h	43;"	d
+MAX_WIDTH_FONT	lib/Fonts/fonts.h	44;"	d
+MCSR	lib/e-Paper/EPD_IT8951.h	150;"	d
+MCSR_BASE_ADDR	lib/e-Paper/EPD_IT8951.h	149;"	d
+MIRROR_HORIZONTAL	lib/GUI/GUI_Paint.h	/^    MIRROR_HORIZONTAL = 0x01,$/;"	e	enum:__anon7
+MIRROR_IMAGE	lib/GUI/GUI_Paint.h	/^} MIRROR_IMAGE;$/;"	t	typeref:enum:__anon7
+MIRROR_IMAGE_DFT	lib/GUI/GUI_Paint.h	107;"	d
+MIRROR_NONE	lib/GUI/GUI_Paint.h	/^    MIRROR_NONE  = 0x00,$/;"	e	enum:__anon7
+MIRROR_ORIGIN	lib/GUI/GUI_Paint.h	/^    MIRROR_ORIGIN = 0x03,$/;"	e	enum:__anon7
+MIRROR_VERTICAL	lib/GUI/GUI_Paint.h	/^    MIRROR_VERTICAL = 0x02,$/;"	e	enum:__anon7
+MSG	Makefile	/^MSG = -g -O0 -Wall$/;"	m
+Memory_Addr_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Memory_Addr_H;$/;"	m	struct:IT8951_Dev_Info	access:public
+Memory_Addr_L	lib/e-Paper/EPD_IT8951.h	/^    UWORD Memory_Addr_L;$/;"	m	struct:IT8951_Dev_Info	access:public
+Min	lib/GUI/GUI_Paint.h	/^    UBYTE  Min;   \/\/0 - 59$/;"	m	struct:__anon12	access:public
+Mirror	lib/GUI/GUI_Paint.h	/^    UWORD Mirror;$/;"	m	struct:__anon6	access:public
+Month	lib/GUI/GUI_Paint.h	/^    UBYTE  Month; \/\/1 - 12$/;"	m	struct:__anon12	access:public
+OBJ_C	Makefile	/^OBJ_C = $(wildcard ${DIR_Config}\/*.c ${DIR_EPD}\/*.c ${DIR_FONTS}\/*.c ${DIR_GUI}\/*.c ${DIR_Examples}\/*.c )$/;"	m
+OBJ_O	Makefile	/^OBJ_O = $(patsubst %.c,${DIR_BIN}\/%.o,$(notdir ${OBJ_C}))$/;"	m
+OFFSET_BITMAP	lib/Fonts/fonts.h	45;"	d
+PAINT	lib/GUI/GUI_Paint.h	/^} PAINT;$/;"	t	typeref:struct:__anon6
+PAINT_TIME	lib/GUI/GUI_Paint.h	/^} PAINT_TIME;$/;"	t	typeref:struct:__anon12
+Paint	lib/GUI/GUI_Paint.c	/^PAINT Paint;$/;"	v
+Paint_Clear	lib/GUI/GUI_Paint.c	/^void Paint_Clear(UWORD Color)$/;"	f	signature:(UWORD Color)
+Paint_Clear	lib/GUI/GUI_Paint.h	/^void Paint_Clear(UWORD Color);$/;"	p	signature:(UWORD Color)
+Paint_ClearWindows	lib/GUI/GUI_Paint.c	/^void Paint_ClearWindows(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color)$/;"	f	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color)
+Paint_ClearWindows	lib/GUI/GUI_Paint.h	/^void Paint_ClearWindows(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color)
+Paint_DrawChar	lib/GUI/GUI_Paint.c	/^void Paint_DrawChar(UWORD Xpoint, UWORD Ypoint, const char Acsii_Char,$/;"	f	signature:(UWORD Xpoint, UWORD Ypoint, const char Acsii_Char, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawChar	lib/GUI/GUI_Paint.h	/^void Paint_DrawChar(UWORD Xstart, UWORD Ystart, const char Acsii_Char, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, const char Acsii_Char, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawCircle	lib/GUI/GUI_Paint.c	/^void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius,$/;"	f	signature:(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill)
+Paint_DrawCircle	lib/GUI/GUI_Paint.h	/^void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill);$/;"	p	signature:(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill)
+Paint_DrawLine	lib/GUI/GUI_Paint.c	/^void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, LINE_STYLE Line_Style)
+Paint_DrawLine	lib/GUI/GUI_Paint.h	/^void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, LINE_STYLE Line_Style);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, LINE_STYLE Line_Style)
+Paint_DrawNum	lib/GUI/GUI_Paint.c	/^void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, int32_t Nummber,$/;"	f	signature:(UWORD Xpoint, UWORD Ypoint, int32_t Nummber, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawNum	lib/GUI/GUI_Paint.h	/^void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, int32_t Nummber, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xpoint, UWORD Ypoint, int32_t Nummber, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawPoint	lib/GUI/GUI_Paint.c	/^void Paint_DrawPoint(UWORD Xpoint, UWORD Ypoint, UWORD Color,$/;"	f	signature:(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_Style)
+Paint_DrawPoint	lib/GUI/GUI_Paint.h	/^void Paint_DrawPoint(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_FillWay);$/;"	p	signature:(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_FillWay)
+Paint_DrawRectangle	lib/GUI/GUI_Paint.c	/^void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill)
+Paint_DrawRectangle	lib/GUI/GUI_Paint.h	/^void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill)
+Paint_DrawString_CN	lib/GUI/GUI_Paint.c	/^void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawString_CN	lib/GUI/GUI_Paint.h	/^void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawString_EN	lib/GUI/GUI_Paint.c	/^void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawString_EN	lib/GUI/GUI_Paint.h	/^void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawTime	lib/GUI/GUI_Paint.c	/^void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawTime	lib/GUI/GUI_Paint.h	/^void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_NewImage	lib/GUI/GUI_Paint.c	/^void Paint_NewImage(UBYTE *image, UWORD Width, UWORD Height, UWORD Rotate, UWORD Color)$/;"	f	signature:(UBYTE *image, UWORD Width, UWORD Height, UWORD Rotate, UWORD Color)
+Paint_NewImage	lib/GUI/GUI_Paint.h	/^void Paint_NewImage(UBYTE *image, UWORD Width, UWORD Height, UWORD Rotate, UWORD Color);$/;"	p	signature:(UBYTE *image, UWORD Width, UWORD Height, UWORD Rotate, UWORD Color)
+Paint_SelectImage	lib/GUI/GUI_Paint.c	/^void Paint_SelectImage(UBYTE *image)$/;"	f	signature:(UBYTE *image)
+Paint_SelectImage	lib/GUI/GUI_Paint.h	/^void Paint_SelectImage(UBYTE *image);$/;"	p	signature:(UBYTE *image)
+Paint_SetBitsPerPixel	lib/GUI/GUI_Paint.c	/^void Paint_SetBitsPerPixel(UBYTE bpp)$/;"	f	signature:(UBYTE bpp)
+Paint_SetBitsPerPixel	lib/GUI/GUI_Paint.h	/^void Paint_SetBitsPerPixel(UBYTE bpp);$/;"	p	signature:(UBYTE bpp)
+Paint_SetMirroring	lib/GUI/GUI_Paint.c	/^void Paint_SetMirroring(UBYTE mirror)$/;"	f	signature:(UBYTE mirror)
+Paint_SetMirroring	lib/GUI/GUI_Paint.h	/^void Paint_SetMirroring(UBYTE mirror);$/;"	p	signature:(UBYTE mirror)
+Paint_SetPixel	lib/GUI/GUI_Paint.c	/^void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color)$/;"	f	signature:(UWORD Xpoint, UWORD Ypoint, UWORD Color)
+Paint_SetPixel	lib/GUI/GUI_Paint.h	/^void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color);$/;"	p	signature:(UWORD Xpoint, UWORD Ypoint, UWORD Color)
+Paint_SetRotate	lib/GUI/GUI_Paint.c	/^void Paint_SetRotate(UWORD Rotate)$/;"	f	signature:(UWORD Rotate)
+Paint_SetRotate	lib/GUI/GUI_Paint.h	/^void Paint_SetRotate(UWORD Rotate);$/;"	p	signature:(UWORD Rotate)
+Panel_Area_Frame_Buf	examples/main.c	/^UBYTE *Panel_Area_Frame_Buf = NULL;$/;"	v
+Panel_Frame_Buf	examples/main.c	/^UBYTE *Panel_Frame_Buf = NULL;$/;"	v
+Panel_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Panel_H;$/;"	m	struct:IT8951_Dev_Info	access:public
+Panel_Height	examples/main.c	/^UWORD Panel_Height;$/;"	v
+Panel_W	lib/e-Paper/EPD_IT8951.h	/^    UWORD Panel_W;$/;"	m	struct:IT8951_Dev_Info	access:public
+Panel_Width	examples/main.c	/^UWORD Panel_Width;$/;"	v
+Pixel_Format	lib/e-Paper/EPD_IT8951.h	/^    UWORD    Pixel_Format;        \/\/bpp$/;"	m	struct:IT8951_Load_Img_Info	access:public
+ROTATE_0	lib/GUI/GUI_Paint.h	93;"	d
+ROTATE_180	lib/GUI/GUI_Paint.h	95;"	d
+ROTATE_270	lib/GUI/GUI_Paint.h	96;"	d
+ROTATE_90	lib/GUI/GUI_Paint.h	94;"	d
+Refresh_Frame_Buf	examples/main.c	/^UBYTE *Refresh_Frame_Buf = NULL;$/;"	v
+Rotate	lib/GUI/GUI_Paint.h	/^    UWORD Rotate;$/;"	m	struct:__anon6	access:public
+Rotate	lib/e-Paper/EPD_IT8951.h	/^    UWORD    Rotate;              \/\/Rotate mode$/;"	m	struct:IT8951_Load_Img_Info	access:public
+SSD	examples/display.c	/^void SSD(int x, int y, char *type,  char num)$/;"	f	signature:(int x, int y, char *type, char num)
+STD	Makefile	/^STD = -std=c99$/;"	m
+SYS_REG_BASE	lib/e-Paper/EPD_IT8951.h	143;"	d
+Sec	lib/GUI/GUI_Paint.h	/^    UBYTE  Sec;   \/\/0 - 59$/;"	m	struct:__anon12	access:public
+Source_Buffer_Addr	lib/e-Paper/EPD_IT8951.h	/^    UDOUBLE  Source_Buffer_Addr;  \/\/Start address of source Frame buffer$/;"	m	struct:IT8951_Load_Img_Info	access:public
+TARGET	Makefile	/^TARGET = epd$/;"	m
+Target_Memory_Addr	lib/e-Paper/EPD_IT8951.h	/^    UDOUBLE  Target_Memory_Addr;  \/\/Base address of target image buffer$/;"	m	struct:IT8951_Load_Img_Info	access:public
+UBYTE	lib/Config/DEV_Config.h	76;"	d
+UDOUBLE	lib/Config/DEV_Config.h	78;"	d
+UP0SR	lib/e-Paper/EPD_IT8951.h	134;"	d
+UP1SR	lib/e-Paper/EPD_IT8951.h	135;"	d
+UPBBADDR	lib/e-Paper/EPD_IT8951.h	137;"	d
+USDEF_I80_CMD_DPY_AREA	lib/e-Paper/EPD_IT8951.h	95;"	d
+USDEF_I80_CMD_DPY_BUF_AREA	lib/e-Paper/EPD_IT8951.h	97;"	d
+USDEF_I80_CMD_GET_DEV_INFO	lib/e-Paper/EPD_IT8951.h	96;"	d
+USDEF_I80_CMD_VCOM	lib/e-Paper/EPD_IT8951.h	98;"	d
+USE_Factory_Test	examples/main.c	7;"	d	file:
+USE_Normal_Demo	examples/main.c	9;"	d	file:
+USE_Touch_Panel	examples/main.c	11;"	d	file:
+UWORD	lib/Config/DEV_Config.h	77;"	d
+VCOM	examples/main.c	/^UWORD VCOM = 2510;$/;"	v
+WHITE	lib/GUI/GUI_Paint.h	112;"	d
+Width	lib/Fonts/fonts.h	/^  uint16_t Width;$/;"	m	struct:__anon2	access:public
+Width	lib/Fonts/fonts.h	/^  uint16_t Width;$/;"	m	struct:_tFont	access:public
+Width	lib/GUI/GUI_Paint.h	/^    UWORD Width;$/;"	m	struct:__anon6	access:public
+WidthByte	lib/GUI/GUI_Paint.h	/^    UWORD WidthByte;$/;"	m	struct:__anon6	access:public
+WidthMemory	lib/GUI/GUI_Paint.h	/^    UWORD WidthMemory;$/;"	m	struct:__anon6	access:public
+Year	lib/GUI/GUI_Paint.h	/^    UWORD Year;  \/\/0000$/;"	m	struct:__anon12	access:public
+_DEV_CONFIG_H_	lib/Config/DEV_Config.h	49;"	d
+__DEBUG_H	lib/Config/Debug.h	36;"	d
+__DISPLAY_C__	examples/display.h	2;"	d
+__EPD_IT8951_H_	lib/e-Paper/EPD_IT8951.h	32;"	d
+__FONTS_H	lib/Fonts/fonts.h	40;"	d
+__GUI_BMPFILE_H	lib/GUI/GUI_BMPfile.h	38;"	d
+__GUI_PAINT_H	lib/GUI/GUI_Paint.h	66;"	d
+__INCLUDE_H__	examples/includes.h	2;"	d
+__MAIN_H__	examples/main.h	2;"	d
+__NETWORK_H__	examples/network.h	2;"	d
+__anon12::Day	lib/GUI/GUI_Paint.h	/^    UBYTE  Day;   \/\/1 - 30$/;"	m	struct:__anon12	access:public
+__anon12::Hour	lib/GUI/GUI_Paint.h	/^    UBYTE  Hour;  \/\/0 - 23$/;"	m	struct:__anon12	access:public
+__anon12::Min	lib/GUI/GUI_Paint.h	/^    UBYTE  Min;   \/\/0 - 59$/;"	m	struct:__anon12	access:public
+__anon12::Month	lib/GUI/GUI_Paint.h	/^    UBYTE  Month; \/\/1 - 12$/;"	m	struct:__anon12	access:public
+__anon12::Sec	lib/GUI/GUI_Paint.h	/^    UBYTE  Sec;   \/\/0 - 59$/;"	m	struct:__anon12	access:public
+__anon12::Year	lib/GUI/GUI_Paint.h	/^    UWORD Year;  \/\/0000$/;"	m	struct:__anon12	access:public
+__anon1::index	lib/Fonts/fonts.h	/^  const  char index[2];                               \/\/ ������������$/;"	m	struct:__anon1	access:public
+__anon1::matrix	lib/Fonts/fonts.h	/^  const  char matrix[MAX_HEIGHT_FONT*MAX_WIDTH_FONT\/8+2];  \/\/ ����������$/;"	m	struct:__anon1	access:public
+__anon2::ASCII_Width	lib/Fonts/fonts.h	/^  uint16_t ASCII_Width;$/;"	m	struct:__anon2	access:public
+__anon2::Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:__anon2	access:public
+__anon2::Width	lib/Fonts/fonts.h	/^  uint16_t Width;$/;"	m	struct:__anon2	access:public
+__anon2::size	lib/Fonts/fonts.h	/^  uint16_t size;$/;"	m	struct:__anon2	access:public
+__anon2::table	lib/Fonts/fonts.h	/^  const CH_CN *table;$/;"	m	struct:__anon2	access:public
+__anon3::bOffset	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE bOffset;   				    \/\/The offset from the beginning of the file header to the beginning of the image data bit$/;"	m	struct:__anon3	access:public
+__anon3::bSize	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE bSize;      				\/\/The size of the file$/;"	m	struct:__anon3	access:public
+__anon3::bType	lib/GUI/GUI_BMPfile.h	/^	UWORD bType;        				\/\/File identifier, as for bmp is:0x4D42$/;"	m	struct:__anon3	access:public
+__anon3::brgbReversed1	lib/GUI/GUI_BMPfile.h	/^	UWORD brgbReversed1;   				\/\/rgbReversed value, must be set to 0$/;"	m	struct:__anon3	access:public
+__anon3::brgbReversed2	lib/GUI/GUI_BMPfile.h	/^	UWORD brgbReversed2;   				\/\/rgbReversed value, must be set to 0$/;"	m	struct:__anon3	access:public
+__anon4::biBitCount	lib/GUI/GUI_BMPfile.h	/^	UWORD biBitCount;	                  \/\/The number of bits per pixel$/;"	m	struct:__anon4	access:public
+__anon4::biClrImportant	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biClrImportant;               \/\/Specifies the number of important colors. When the value of this field is equal to the number of colors (or equal to 0), it means that all colors are equally important.$/;"	m	struct:__anon4	access:public
+__anon4::biClrUsed	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biClrUsed;                    \/\/Number of colors for bitmap used in color palette$/;"	m	struct:__anon4	access:public
+__anon4::biCompression	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biCompression;                \/\/Compression type$/;"	m	struct:__anon4	access:public
+__anon4::biHeight	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biHeight;	                  \/\/The height of the image$/;"	m	struct:__anon4	access:public
+__anon4::biInfoSize	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biInfoSize;                   \/\/The size of the header: 40$/;"	m	struct:__anon4	access:public
+__anon4::biPlanes	lib/GUI/GUI_BMPfile.h	/^	UWORD biPlanes;		                  \/\/The number of target planes in the image$/;"	m	struct:__anon4	access:public
+__anon4::biWidth	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biWidth;                      \/\/The width of the image$/;"	m	struct:__anon4	access:public
+__anon4::biXPelsPerMeter	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biXPelsPerMeter;              \/\/Number of horizontal pixel of the target device per meter$/;"	m	struct:__anon4	access:public
+__anon4::biYPelsPerMeter	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biYPelsPerMeter;              \/\/Number of vertical pixel of the target device per meter$/;"	m	struct:__anon4	access:public
+__anon4::bimpImageSize	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE bimpImageSize;                \/\/The size of the image in bytes. The data must be a multiple of 4.$/;"	m	struct:__anon4	access:public
+__anon5::rgbBlue	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbBlue;                  \/\/rgbBlue intensity$/;"	m	struct:__anon5	access:public
+__anon5::rgbGreen	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbGreen;                 \/\/rgbGreen intensity$/;"	m	struct:__anon5	access:public
+__anon5::rgbRed	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbRed;                   \/\/rgbRed intensity$/;"	m	struct:__anon5	access:public
+__anon5::rgbReversed	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbReversed;              \/\/rgbReversed value$/;"	m	struct:__anon5	access:public
+__anon6::BitsPerPixel	lib/GUI/GUI_Paint.h	/^    UWORD BitsPerPixel;$/;"	m	struct:__anon6	access:public
+__anon6::Color	lib/GUI/GUI_Paint.h	/^    UWORD Color;$/;"	m	struct:__anon6	access:public
+__anon6::GrayScale	lib/GUI/GUI_Paint.h	/^    UWORD GrayScale;$/;"	m	struct:__anon6	access:public
+__anon6::Height	lib/GUI/GUI_Paint.h	/^    UWORD Height;$/;"	m	struct:__anon6	access:public
+__anon6::HeightByte	lib/GUI/GUI_Paint.h	/^    UWORD HeightByte;$/;"	m	struct:__anon6	access:public
+__anon6::HeightMemory	lib/GUI/GUI_Paint.h	/^    UWORD HeightMemory;$/;"	m	struct:__anon6	access:public
+__anon6::Image	lib/GUI/GUI_Paint.h	/^    UBYTE *Image;$/;"	m	struct:__anon6	access:public
+__anon6::Mirror	lib/GUI/GUI_Paint.h	/^    UWORD Mirror;$/;"	m	struct:__anon6	access:public
+__anon6::Rotate	lib/GUI/GUI_Paint.h	/^    UWORD Rotate;$/;"	m	struct:__anon6	access:public
+__anon6::Width	lib/GUI/GUI_Paint.h	/^    UWORD Width;$/;"	m	struct:__anon6	access:public
+__anon6::WidthByte	lib/GUI/GUI_Paint.h	/^    UWORD WidthByte;$/;"	m	struct:__anon6	access:public
+__anon6::WidthMemory	lib/GUI/GUI_Paint.h	/^    UWORD WidthMemory;$/;"	m	struct:__anon6	access:public
+_tFont	lib/Fonts/fonts.h	/^typedef struct _tFont$/;"	s
+_tFont::Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:_tFont	access:public
+_tFont::Width	lib/Fonts/fonts.h	/^  uint16_t Width;$/;"	m	struct:_tFont	access:public
+_tFont::table	lib/Fonts/fonts.h	/^  const uint8_t *table;$/;"	m	struct:_tFont	access:public
+bOffset	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE bOffset;   				    \/\/The offset from the beginning of the file header to the beginning of the image data bit$/;"	m	struct:__anon3	access:public
+bSize	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE bSize;      				\/\/The size of the file$/;"	m	struct:__anon3	access:public
+bType	lib/GUI/GUI_BMPfile.h	/^	UWORD bType;        				\/\/File identifier, as for bmp is:0x4D42$/;"	m	struct:__anon3	access:public
+biBitCount	lib/GUI/GUI_BMPfile.h	/^	UWORD biBitCount;	                  \/\/The number of bits per pixel$/;"	m	struct:__anon4	access:public
+biClrImportant	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biClrImportant;               \/\/Specifies the number of important colors. When the value of this field is equal to the number of colors (or equal to 0), it means that all colors are equally important.$/;"	m	struct:__anon4	access:public
+biClrUsed	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biClrUsed;                    \/\/Number of colors for bitmap used in color palette$/;"	m	struct:__anon4	access:public
+biCompression	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biCompression;                \/\/Compression type$/;"	m	struct:__anon4	access:public
+biHeight	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biHeight;	                  \/\/The height of the image$/;"	m	struct:__anon4	access:public
+biInfoSize	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biInfoSize;                   \/\/The size of the header: 40$/;"	m	struct:__anon4	access:public
+biPlanes	lib/GUI/GUI_BMPfile.h	/^	UWORD biPlanes;		                  \/\/The number of target planes in the image$/;"	m	struct:__anon4	access:public
+biWidth	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biWidth;                      \/\/The width of the image$/;"	m	struct:__anon4	access:public
+biXPelsPerMeter	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biXPelsPerMeter;              \/\/Number of horizontal pixel of the target device per meter$/;"	m	struct:__anon4	access:public
+biYPelsPerMeter	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE biYPelsPerMeter;              \/\/Number of vertical pixel of the target device per meter$/;"	m	struct:__anon4	access:public
+bimpImageSize	lib/GUI/GUI_BMPfile.h	/^	UDOUBLE bimpImageSize;                \/\/The size of the image in bytes. The data must be a multiple of 4.$/;"	m	struct:__anon4	access:public
+bmp_BitCount	lib/GUI/GUI_BMPfile.c	/^UBYTE  bmp_BitCount;$/;"	v
+bmp_dst_buf	lib/GUI/GUI_BMPfile.c	/^UBYTE *bmp_dst_buf = NULL;$/;"	v
+bmp_height	lib/GUI/GUI_BMPfile.c	/^UDOUBLE bmp_width, bmp_height;$/;"	v
+bmp_src_buf	lib/GUI/GUI_BMPfile.c	/^UBYTE *bmp_src_buf = NULL;$/;"	v
+bmp_width	lib/GUI/GUI_BMPfile.c	/^UDOUBLE bmp_width, bmp_height;$/;"	v
+brgbReversed1	lib/GUI/GUI_BMPfile.h	/^	UWORD brgbReversed1;   				\/\/rgbReversed value, must be set to 0$/;"	m	struct:__anon3	access:public
+brgbReversed2	lib/GUI/GUI_BMPfile.h	/^	UWORD brgbReversed2;   				\/\/rgbReversed value, must be set to 0$/;"	m	struct:__anon3	access:public
+bytesPerLine	lib/GUI/GUI_BMPfile.c	/^UDOUBLE bytesPerLine;$/;"	v
+cFONT	lib/Fonts/fonts.h	/^}cFONT;$/;"	t	typeref:struct:__anon2
+dayu	examples/includes.h	9;"	d
+duoyun	examples/includes.h	5;"	d
+epd_mode	examples/main.c	/^int epd_mode = 0; \/\/0: no rotate, no mirror$/;"	v
+finishFlag	examples/main.c	/^char finishFlag = 0;$/;"	v
+handle	examples/network.c	/^void handle(){}$/;"	f
+humidity	examples/main.c	/^int humidity;$/;"	v
+imageSize	lib/GUI/GUI_BMPfile.c	/^UDOUBLE imageSize;$/;"	v
+index	lib/Fonts/fonts.h	/^  const  char index[2];                               \/\/ ������������$/;"	m	struct:__anon1	access:public
+main	examples/main.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+matrix	lib/Fonts/fonts.h	/^  const  char matrix[MAX_HEIGHT_FONT*MAX_WIDTH_FONT\/8+2];  \/\/ ����������$/;"	m	struct:__anon1	access:public
+newpointX	examples/main.c	/^int newpointX,newpointY;$/;"	v
+newpointY	examples/main.c	/^int newpointX,newpointY;$/;"	v
+palette	lib/GUI/GUI_BMPfile.c	/^BMPRGBQUAD  palette[256];$/;"	v
+pointList	examples/main.c	/^int pointList[1000][2],pointNum;$/;"	v
+pointNum	examples/main.c	/^int pointList[1000][2],pointNum;$/;"	v
+qing	examples/includes.h	6;"	d
+recvPic	examples/network.c	/^void *recvPic(void* arg){$/;"	f	signature:(void* arg)
+recvPic	examples/network.h	/^void *recvPic(void *args);$/;"	p	signature:(void *args)
+refhei	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
+refminx	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
+refminy	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
+refreshNetData	examples/network.c	/^void* refreshNetData(void* data){$/;"	f	signature:(void* data)
+refreshNetData	examples/network.h	/^void* refreshNetData(void* data);$/;"	p	signature:(void* data)
+refreshTemp	examples/network.c	/^char refreshTemp,refreshText=1;$/;"	v
+refreshText	examples/network.c	/^char refreshTemp,refreshText=1;$/;"	v
+refreshTrace	examples/main.c	/^int refreshTrace;$/;"	v
+refreshType	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
+refwid	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
+rgbBlue	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbBlue;                  \/\/rgbBlue intensity$/;"	m	struct:__anon5	access:public
+rgbGreen	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbGreen;                 \/\/rgbGreen intensity$/;"	m	struct:__anon5	access:public
+rgbRed	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbRed;                   \/\/rgbRed intensity$/;"	m	struct:__anon5	access:public
+rgbReversed	lib/GUI/GUI_BMPfile.h	/^	UBYTE rgbReversed;              \/\/rgbReversed value$/;"	m	struct:__anon5	access:public
+sFONT	lib/Fonts/fonts.h	/^} sFONT;$/;"	t	typeref:struct:_tFont
+size	lib/Fonts/fonts.h	/^  uint16_t size;$/;"	m	struct:__anon2	access:public
+skip	lib/GUI/GUI_BMPfile.c	/^UDOUBLE skip;$/;"	v
+table	lib/Fonts/fonts.h	/^  const CH_CN *table;$/;"	m	struct:__anon2	access:public
+table	lib/Fonts/fonts.h	/^  const uint8_t *table;$/;"	m	struct:_tFont	access:public
+temperature	examples/main.c	/^	int temperature=0;$/;"	v
+th	examples/main.c	/^pthread_t th,th_net;$/;"	v
+th_net	examples/main.c	/^pthread_t th,th_net;$/;"	v
+thread	examples/main.c	/^void *thread(void *arg)$/;"	f	signature:(void *arg)
+time2Nums	examples/display.c	/^void time2Nums(struct tm *t, char *nums)$/;"	f	signature:(struct tm *t, char *nums)
+weather	examples/main.c	/^int weather;$/;"	v
+xiaoyu	examples/includes.h	7;"	d
+yin	examples/includes.h	4;"	d
+zhongyu	examples/includes.h	8;"	d
