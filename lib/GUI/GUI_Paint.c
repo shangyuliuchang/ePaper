@@ -722,9 +722,9 @@ void Paint_DrawString_CN_Try(UWORD Xstart, UWORD Ystart, const char * pString, c
 //                }
 //            }
 //            /* Point on the next character */
-//            p_text += 1;
+            p_text += 1;
 //            /* Decrement the column position by 16 */
-//            x += font->ASCII_Width*2;
+            x += font->ASCII_Width*2;
         } else {        //Chinese
 			if(p_text[0]>=0xA1 && p_text[0]<=0xFE){
 				printf("try to print CH:%d, %d\n",p_text[0], p_text[1]);

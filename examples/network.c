@@ -13,14 +13,16 @@ void* refreshNetData(void* data){
 	time_t last,now;
     struct sockaddr_in servaddr;
     FILE *fp = NULL;
-    char send[200], recv[4096],*search;//,tmpe,*tmp;
+    char Send[200], recv[4096],*search;//,tmpe,*tmp;
 	cnt=250*5;
 	FILE *recvHead, *recvBody;
 	CURL *curlHandle;
 	curl_global_init(CURL_GLOBAL_ALL);
+    struct tm *p;
 	while(!finishFlag){
 		sleep(1);
 		time(&now);
+		p=localtime(&now);
 		if(last!=now){
 			last=now;
 			if(++cnt>5*240){
@@ -41,10 +43,10 @@ void* refreshNetData(void* data){
     			    printf("connect success\n");
     			else
     			    printf("connect failed\n");
-    			strcpy(send, "GET /api?version=v6&appid=89759873&appsecret=2IDiUz0x&cityid=101020200 HTTP/1.1\r\nHost: tianqiapi.com\r\n\r\n");
+    			strcpy(Send, "GET /api?version=v6&appid=89759873&appsecret=2IDiUz0x&cityid=101020200 HTTP/1.1\r\nHost: tianqiapi.com\r\n\r\n");
 				cnt=0;
-    			ret = write(sockfd, send, strlen(send));
-    			printf("send length: %d", ret);
+    			ret = write(sockfd, Send, strlen(Send));
+    			printf("send length: %d\n", ret);
 
 
 				memset(recv,0,sizeof(recv));
@@ -72,6 +74,7 @@ void* refreshNetData(void* data){
 					else if(search[0]=='\\' && search[1]=='u' && search[2]=='6') weather=qing;
     			    fclose(fp);
 					refreshTemp=1;
+					printf("weather receive done!\n");
     			}
 				close(sockfd);
 			}
@@ -89,11 +92,77 @@ void* refreshNetData(void* data){
 					fclose(recvHead);
 					fclose(recvBody);
 					curl_easy_cleanup(curlHandle);
-					refreshSentence = 1;
+					refreshSentence=1;
 				}else{
 					curl_easy_cleanup(curlHandle);
+					fclose(recvHead);
+					fclose(recvBody);
 				}
 			}
+
+
+
+
+				if(!refreshFig && p->tm_min%2){
+					curlHandle=curl_easy_init();
+					curl_easy_setopt(curlHandle, CURLOPT_URL, "https://img.xjh.me/random_img.php");
+					curl_easy_setopt(curlHandle, CURLOPT_NOPROGRESS, 1L);
+					curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, write_data);
+					recvHead=fopen("header.txt","wb");
+					recvBody=fopen("./pic/random.txt","wb");
+					if(recvHead>0 && recvBody>0){
+						curl_easy_setopt(curlHandle, CURLOPT_WRITEHEADER, recvHead);
+						curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, recvBody);
+						curl_easy_perform(curlHandle);
+						fclose(recvHead);
+						fclose(recvBody);
+						curl_easy_cleanup(curlHandle);
+					}else{
+						curl_easy_cleanup(curlHandle);
+						fclose(recvHead);
+						fclose(recvBody);
+					}
+
+
+
+
+					fp=fopen("./pic/random.txt","r");
+					fgets(recv,1000,fp);
+					search=strstr(recv,"src=")-1;
+					search[0]='h';
+					search[1]='t';
+					search[2]='t';
+					search[3]='p';
+					search[4]='s';
+					search[5]=':';
+					for(int i=0;i<strlen(search);i++)
+					  if(search[i]=='\"'){
+						  search[i]=0;
+						  break;
+					  }
+
+					printf("url:%s\n",search);
+					curlHandle=curl_easy_init();
+					curl_easy_setopt(curlHandle, CURLOPT_URL, search);
+					curl_easy_setopt(curlHandle, CURLOPT_NOPROGRESS, 1L);
+					curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, write_data);
+					recvHead=fopen("header.txt","wb");
+					recvBody=fopen("./pic/random.jpg","wb");
+					if(recvHead>0 && recvBody>0){
+						curl_easy_setopt(curlHandle, CURLOPT_WRITEHEADER, recvHead);
+						curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, recvBody);
+						curl_easy_perform(curlHandle);
+						fclose(recvHead);
+						fclose(recvBody);
+						curl_easy_cleanup(curlHandle);
+						printf("receive figure done!\n");
+					}else{
+						curl_easy_cleanup(curlHandle);
+						fclose(recvHead);
+						fclose(recvBody);
+					}
+					refreshFig=1;
+				}
 
 		//	signal(SIGALRM,handle);
 		//	alarm(2); 

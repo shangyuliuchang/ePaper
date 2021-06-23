@@ -264,6 +264,7 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 				Paint_SetBitsPerPixel(1);
 				Paint_Clear(WHITE);
 				linecnt=0;
+
 				for(int i=0;i<strlen(convert);i++){
 					if(convert[i]>=160){
 						shortstr[0]=convert[i];
@@ -280,7 +281,19 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 1344, 300, 96, 700, A2_Mode, Init_Target_Memory_Addr, true);
 			}
 		}
-
+			if(refreshFig && p->tm_min%2==0){
+				printf("begin converting\n");
+				JpegToBmp("./pic/random.jpg","./pic/random.bmp");
+				printf("converting done\n");
+				Paint_NewImage(Refresh_Frame_Buf,1344, 772,0, WHITE);
+				Paint_SelectImage(Refresh_Frame_Buf);
+				Epd_Mode(epd_mode);
+				Paint_SetBitsPerPixel(1);
+				Paint_Clear(WHITE);
+				GUI_ReadBmp("./pic/random.bmp",0,0);
+				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 0,300,1344, 772, A2_Mode, Init_Target_Memory_Addr, true);
+				refreshFig=0;
+			}
     }
     if (Refresh_Frame_Buf != NULL)
     {

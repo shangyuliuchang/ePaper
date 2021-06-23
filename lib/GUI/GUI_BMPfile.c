@@ -51,6 +51,7 @@
 //global variables related to BMP picture display
 UBYTE *bmp_dst_buf = NULL;
 UBYTE *bmp_src_buf = NULL;
+UBYTE *grayBuf = NULL;
 UDOUBLE bmp_width, bmp_height;
 UBYTE  bmp_BitCount;
 UDOUBLE bytesPerLine;
@@ -193,12 +194,13 @@ static void Bitmap_format_Matrix(UBYTE *dst,UBYTE *src)
 	}	
 }
 
-static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix)
+static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix, UBYTE bitCount)
 {
 	UWORD i,j,x,y;
 	UBYTE R,G,B;
 	UBYTE temp1,temp2;
 	double Gray;
+	int16_t tmp, sub;
 	
 	for (y=0,j=Ypos;y<High;y++,j++)
 	{
@@ -239,7 +241,41 @@ static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYT
 			}
 		
 			Gray = (R*299 + G*587 + B*114 + 500) / 1000;
-            Paint_SetPixel(i, j, Gray);
+            //Paint_SetPixel(i, j, Gray);
+			if(Gray>255)Gray=255;
+			if(Gray<0)Gray=0;
+			grayBuf[y*Width+x]=Gray;
+		}
+	}
+
+	if(bitCount>=8)
+	for (y=0,j=Ypos;y<High;y++,j++){
+ 		for (x=0,i=Xpos;x<Width;x++,i++){
+			sub=((int16_t)(grayBuf[y*Width+x])-(int16_t)((grayBuf[y*Width+x]>>7)*255));
+			if(x<Width-1){
+				tmp=(int16_t)(grayBuf[y*Width+x+1])+sub*3/8;
+				if(tmp>255)tmp=255;
+				if(tmp<0)tmp=0;
+				grayBuf[y*Width+x+1]=(uint8_t)tmp;
+			}
+			if(y<High-1){
+				tmp=(int16_t)(grayBuf[(y+1)*Width+x])+sub*3/8;
+				if(tmp>255)tmp=255;
+				if(tmp<0)tmp=0;
+				grayBuf[(y+1)*Width+x]=(uint8_t)tmp;
+			}
+			if(x<Width-1 && y<High-1){
+				tmp=(int16_t)(grayBuf[(y+1)*Width+x+1])+sub/4;
+				if(tmp>255)tmp=255;
+				if(tmp<0)tmp=0;
+				grayBuf[(y+1)*Width+x+1]=(uint8_t)tmp;
+			}
+		}
+	}
+
+	for (y=0,j=Ypos;y<High;y++,j++){
+ 		for (x=0,i=Xpos;x<Width;x++,i++){
+            Paint_SetPixel(i, j, grayBuf[y*Width+x]);
 		}
 	}
 }
@@ -325,8 +361,9 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
     }
 	//This is old code, but allocate imageSize byte memory is more reasonable
 	bmp_dst_buf = (UBYTE*)calloc(1,total_length);
+	grayBuf = (UBYTE*)calloc(1,total_length);
 	//bmp_dst_buf = (UBYTE*)calloc(1,imageSize);
-    if(bmp_dst_buf == NULL){
+    if(bmp_dst_buf == NULL||grayBuf==NULL){
         Debug("Load > malloc bmp out of memory!\n");
         return -2;
     }
@@ -364,7 +401,8 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
 			//this is old code, will likely result in memory leak if use 1bp source bmp image
 			 
 			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			if(bmp_dst_buf == NULL)
+			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
+			if(bmp_dst_buf == NULL || grayBuf == NULL)
 			{
 				Debug("Load > malloc bmp out of memory!\n");
 				return -5;
@@ -383,7 +421,8 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
 			//this is old code, will likely result in memory leak if use 4bp source bmp image
 			
 			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			if(bmp_dst_buf == NULL)
+			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
+			if(bmp_dst_buf == NULL||grayBuf==NULL)
 			{
 				Debug("Load > malloc bmp out of memory!\n");
 				return -5;
@@ -408,13 +447,15 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
 	}
 
 	Bitmap_format_Matrix(bmp_dst_buf,bmp_src_buf);
-	DrawMatrix(x, y,InfoHead.biWidth, InfoHead.biHeight, bmp_dst_buf);
+	DrawMatrix(x, y,InfoHead.biWidth, InfoHead.biHeight, bmp_dst_buf, bmp_BitCount);
 
     free(bmp_src_buf);
     free(bmp_dst_buf);
+    free(grayBuf);
 
 	bmp_src_buf = NULL;
 	bmp_dst_buf = NULL;
+	grayBuf = NULL;
 
 	fclose(fp);
 	return(0);

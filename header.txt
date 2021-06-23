@@ -1,22 +1,15 @@
-HTTP/2 200 
-server: NWS_TCloud_static_hy_soc2
-date: Wed, 23 Jun 2021 08:13:59 GMT
-content-type: text/plain; charset=gbk
-x-nws-uuid-verify: 14a20b9941aeec03753995f527746c95
-x-request-id: d6a2a77b-7317-406e-adad-3f0e0f157144
-content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
-x-dns-prefetch-control: off
-expect-ct: max-age=0
-x-frame-options: SAMEORIGIN
-strict-transport-security: max-age=15552000; includeSubDomains
-x-download-options: noopen
-x-content-type-options: nosniff
-x-permitted-cross-domain-policies: none
-referrer-policy: no-referrer
-x-xss-protection: 0
-vary: Origin
-x-daa-tunnel: hop_count=2
-content-length: 14
-x-nws-log-uuid: 16698405146581926257
-x-cache-lookup: Cache Miss
+HTTP/1.1 200 OK
+Date: Wed, 23 Jun 2021 14:05:03 GMT
+Content-Type: image/jpeg
+Content-Length: 463519
+Connection: keep-alive
+Set-Cookie: waf_cookie=3d5186aa-a6c2-41db9c46f1cad9b08626c7e2ea6a7139e666; Expires=1624464300; Path=/; Secure; HttpOnly
+Last-Modified: Sat, 12 Aug 2017 06:37:06 GMT
+ETag: "598ea212-7129f"
+Expires: Fri, 23 Jul 2021 14:05:04 GMT
+Cache-Control: max-age=31536000
+X-Cache: MISS
+X-Request-Id: 9d7b70bb160c0fdb3483132bcc5db70a
+Server: WAF/2.4-12.1
+Accept-Ranges: bytes
 

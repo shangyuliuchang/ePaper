@@ -19,7 +19,7 @@ STD = -std=c99
 
 CFLAGS += $(MSG)  $(STD)
 
-LIB = -lbcm2835 -lm -lrt -lpthread -lcurl
+LIB = -lbcm2835 -lm -lrt -lpthread -lcurl -ljpeg
 
 
 ${TARGET}:${OBJ_O}

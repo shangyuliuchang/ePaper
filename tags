@@ -5,7 +5,7 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 A2_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE A2_Mode = 6;$/;"	v
-ARRAY_LEN	lib/GUI/GUI_Paint.c	773;"	d	file:
+ARRAY_LEN	lib/GUI/GUI_Paint.c	784;"	d	file:
 ASCII_Width	lib/Fonts/fonts.h	/^  uint16_t ASCII_Width;$/;"	m	struct:__anon2	access:public
 Area_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_H;$/;"	m	struct:IT8951_Area_Img_Info	access:public
 Area_W	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_W;$/;"	m	struct:IT8951_Area_Img_Info	access:public
@@ -68,7 +68,7 @@ Day	lib/GUI/GUI_Paint.h	/^    UBYTE  Day;   \/\/1 - 30$/;"	m	struct:__anon12	acc
 Debug	lib/Config/Debug.h	41;"	d
 Debug	lib/Config/Debug.h	43;"	d
 Dev_Info	examples/main.c	/^IT8951_Dev_Info Dev_Info;$/;"	v
-DrawMatrix	lib/GUI/GUI_BMPfile.c	/^static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix)$/;"	f	file:	signature:(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix)
+DrawMatrix	lib/GUI/GUI_BMPfile.c	/^static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix, UBYTE bitCount)$/;"	f	file:	signature:(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix, UBYTE bitCount)
 Dynamic_Refresh_Example	examples/display.c	/^UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)$/;"	f	signature:(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)
 Dynamic_Refresh_Example	examples/display.h	/^UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr);$/;"	p	signature:(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)
 EPD_BUSY_PIN	lib/Config/DEV_Config.h	69;"	d
@@ -152,7 +152,7 @@ GC16_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE GC16_Mode = 2;$/;"	v
 GUI_ReadBmp	lib/GUI/GUI_BMPfile.c	/^UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)$/;"	f	signature:(const char *path, UWORD x, UWORD y)
 GUI_ReadBmp	lib/GUI/GUI_BMPfile.h	/^UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y);$/;"	p	signature:(const char *path, UWORD x, UWORD y)
 GrayScale	lib/GUI/GUI_Paint.h	/^    UWORD GrayScale;$/;"	m	struct:__anon6	access:public
-HZK24	lib/Fonts/HZK24.h	/^const unsigned char HZK24[][24]={$/;"	v
+HZK24	lib/Fonts/HZK24.c	/^const unsigned char HZK24[][24]={$/;"	v
 Handler	examples/main.c	/^void Handler(int signo)$/;"	f	signature:(int signo)
 Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:__anon2	access:public
 Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:_tFont	access:public
@@ -208,7 +208,9 @@ IT8951_TCON_STANDBY	lib/e-Paper/EPD_IT8951.h	80;"	d
 IT8951_TCON_SYS_RUN	lib/e-Paper/EPD_IT8951.h	79;"	d
 Image	lib/GUI/GUI_Paint.h	/^    UBYTE *Image;$/;"	m	struct:__anon6	access:public
 Init_Target_Memory_Addr	examples/main.c	/^UDOUBLE Init_Target_Memory_Addr;$/;"	v
-LIB	Makefile	/^LIB = -lbcm2835 -lm -lrt -lpthread -lcurl$/;"	m
+JpegToBmp	examples/figConv.c	/^void JpegToBmp( char *JpegName,char * NewBmpName)\/\/将读取jpeg中的数据并保存为BMP格式的文件,生成的都是24位真彩图，不需要调色板$/;"	f	signature:( char *JpegName,char * NewBmpName)
+JpegToBmp	examples/figConv.h	/^voi JpegToBmp(char *JpegName, char *NewBmpName);$/;"	p	signature:(char *JpegName, char *NewBmpName)
+LIB	Makefile	/^LIB = -lbcm2835 -lm -lrt -lpthread -lcurl -ljpeg$/;"	m
 LINE_STYLE	lib/GUI/GUI_Paint.h	/^} LINE_STYLE;$/;"	t	typeref:enum:__anon10
 LINE_STYLE_DOTTED	lib/GUI/GUI_Paint.h	/^    LINE_STYLE_DOTTED,$/;"	e	enum:__anon10
 LINE_STYLE_SOLID	lib/GUI/GUI_Paint.h	/^    LINE_STYLE_SOLID = 0,$/;"	e	enum:__anon10
@@ -326,9 +328,11 @@ _DEV_CONFIG_H_	lib/Config/DEV_Config.h	49;"	d
 __DEBUG_H	lib/Config/Debug.h	36;"	d
 __DISPLAY_C__	examples/display.h	2;"	d
 __EPD_IT8951_H_	lib/e-Paper/EPD_IT8951.h	32;"	d
+__FIGCONV__	examples/figConv.h	2;"	d
 __FONTS_H	lib/Fonts/fonts.h	40;"	d
 __GUI_BMPFILE_H	lib/GUI/GUI_BMPfile.h	38;"	d
 __GUI_PAINT_H	lib/GUI/GUI_Paint.h	66;"	d
+__HZK_24__	lib/Fonts/HZK24.h	2;"	d
 __INCLUDE_H__	examples/includes.h	2;"	d
 __MAIN_H__	examples/main.h	2;"	d
 __NETWORK_H__	examples/network.h	2;"	d
@@ -409,6 +413,7 @@ dayu	examples/includes.h	9;"	d
 duoyun	examples/includes.h	5;"	d
 epd_mode	examples/main.c	/^int epd_mode = 0; \/\/0: no rotate, no mirror$/;"	v
 finishFlag	examples/main.c	/^char finishFlag = 0;$/;"	v
+grayBuf	lib/GUI/GUI_BMPfile.c	/^UBYTE *grayBuf = NULL;$/;"	v
 handle	examples/network.c	/^void handle(){}$/;"	f
 humidity	examples/main.c	/^int humidity;$/;"	v
 imageSize	lib/GUI/GUI_BMPfile.c	/^UDOUBLE imageSize;$/;"	v
@@ -428,7 +433,7 @@ refminx	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	
 refminy	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
 refreshNetData	examples/network.c	/^void* refreshNetData(void* data){$/;"	f	signature:(void* data)
 refreshNetData	examples/network.h	/^void* refreshNetData(void* data);$/;"	p	signature:(void* data)
-refreshSentence	examples/main.c	/^int refreshSentence;$/;"	v
+refreshSentence	examples/main.c	/^int refreshSentence=1;$/;"	v
 refreshTemp	examples/network.c	/^char refreshTemp,refreshText=1;$/;"	v
 refreshText	examples/network.c	/^char refreshTemp,refreshText=1;$/;"	v
 refreshTrace	examples/main.c	/^int refreshTrace;$/;"	v

@@ -39,6 +39,8 @@
 #include"../examples/main.h"
 #include"../examples/display.h"
 #include <iconv.h>
+#include <jpeglib.h>
+#include "../examples/figConv.h"
 
 
 
