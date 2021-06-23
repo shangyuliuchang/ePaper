@@ -726,7 +726,7 @@ void Paint_DrawString_CN_Try(UWORD Xstart, UWORD Ystart, const char * pString, c
 //            /* Decrement the column position by 16 */
             x += font->ASCII_Width*2;
         } else {        //Chinese
-			if(p_text[0]>=0xA1 && p_text[0]<=0xFE){
+			if(p_text[0]>=0xA1 && p_text[0]<=0xFE && p_text[1]>=0xA1){
 				printf("try to print CH:%d, %d\n",p_text[0], p_text[1]);
 				char* ptr = (char *)HZK24[((p_text[0]-0xA1)*94+(p_text[1]-0xA1))*3];
 				for (j = 0; j < 24; j++) {
