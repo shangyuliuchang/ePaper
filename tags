@@ -5,7 +5,7 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 A2_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE A2_Mode = 6;$/;"	v
-ARRAY_LEN	lib/GUI/GUI_Paint.c	685;"	d	file:
+ARRAY_LEN	lib/GUI/GUI_Paint.c	773;"	d	file:
 ASCII_Width	lib/Fonts/fonts.h	/^  uint16_t ASCII_Width;$/;"	m	struct:__anon2	access:public
 Area_H	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_H;$/;"	m	struct:IT8951_Area_Img_Info	access:public
 Area_W	lib/e-Paper/EPD_IT8951.h	/^    UWORD Area_W;$/;"	m	struct:IT8951_Area_Img_Info	access:public
@@ -152,6 +152,7 @@ GC16_Mode	lib/e-Paper/EPD_IT8951.c	/^UBYTE GC16_Mode = 2;$/;"	v
 GUI_ReadBmp	lib/GUI/GUI_BMPfile.c	/^UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)$/;"	f	signature:(const char *path, UWORD x, UWORD y)
 GUI_ReadBmp	lib/GUI/GUI_BMPfile.h	/^UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y);$/;"	p	signature:(const char *path, UWORD x, UWORD y)
 GrayScale	lib/GUI/GUI_Paint.h	/^    UWORD GrayScale;$/;"	m	struct:__anon6	access:public
+HZK24	lib/Fonts/HZK24.h	/^const unsigned char HZK24[][24]={$/;"	v
 Handler	examples/main.c	/^void Handler(int signo)$/;"	f	signature:(int signo)
 Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:__anon2	access:public
 Height	lib/Fonts/fonts.h	/^  uint16_t Height;$/;"	m	struct:_tFont	access:public
@@ -207,7 +208,7 @@ IT8951_TCON_STANDBY	lib/e-Paper/EPD_IT8951.h	80;"	d
 IT8951_TCON_SYS_RUN	lib/e-Paper/EPD_IT8951.h	79;"	d
 Image	lib/GUI/GUI_Paint.h	/^    UBYTE *Image;$/;"	m	struct:__anon6	access:public
 Init_Target_Memory_Addr	examples/main.c	/^UDOUBLE Init_Target_Memory_Addr;$/;"	v
-LIB	Makefile	/^LIB = -lbcm2835 -lm -lrt -lpthread$/;"	m
+LIB	Makefile	/^LIB = -lbcm2835 -lm -lrt -lpthread -lcurl$/;"	m
 LINE_STYLE	lib/GUI/GUI_Paint.h	/^} LINE_STYLE;$/;"	t	typeref:enum:__anon10
 LINE_STYLE_DOTTED	lib/GUI/GUI_Paint.h	/^    LINE_STYLE_DOTTED,$/;"	e	enum:__anon10
 LINE_STYLE_SOLID	lib/GUI/GUI_Paint.h	/^    LINE_STYLE_SOLID = 0,$/;"	e	enum:__anon10
@@ -261,6 +262,8 @@ Paint_DrawRectangle	lib/GUI/GUI_Paint.c	/^void Paint_DrawRectangle(UWORD Xstart,
 Paint_DrawRectangle	lib/GUI/GUI_Paint.h	/^void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill)
 Paint_DrawString_CN	lib/GUI/GUI_Paint.c	/^void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background)
 Paint_DrawString_CN	lib/GUI/GUI_Paint.h	/^void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawString_CN_Try	lib/GUI/GUI_Paint.c	/^void Paint_DrawString_CN_Try(UWORD Xstart, UWORD Ystart, const char * pString, cFONT *font,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, const char * pString, cFONT *font, UWORD Color_Foreground, UWORD Color_Background)
+Paint_DrawString_CN_Try	lib/GUI/GUI_Paint.h	/^void Paint_DrawString_CN_Try(UWORD Xstart, UWORD Ystart, const char * pString, cFONT *font, $/;"	p	signature:(UWORD Xstart, UWORD Ystart, const char * pString, cFONT *font, UWORD Color_Foreground, UWORD Color_Background)
 Paint_DrawString_EN	lib/GUI/GUI_Paint.c	/^void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
 Paint_DrawString_EN	lib/GUI/GUI_Paint.h	/^void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);$/;"	p	signature:(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
 Paint_DrawTime	lib/GUI/GUI_Paint.c	/^void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font,$/;"	f	signature:(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background)
@@ -401,6 +404,7 @@ brgbReversed1	lib/GUI/GUI_BMPfile.h	/^	UWORD brgbReversed1;   				\/\/rgbReverse
 brgbReversed2	lib/GUI/GUI_BMPfile.h	/^	UWORD brgbReversed2;   				\/\/rgbReversed value, must be set to 0$/;"	m	struct:__anon3	access:public
 bytesPerLine	lib/GUI/GUI_BMPfile.c	/^UDOUBLE bytesPerLine;$/;"	v
 cFONT	lib/Fonts/fonts.h	/^}cFONT;$/;"	t	typeref:struct:__anon2
+code_convert	examples/display.c	/^int code_convert(char *from_charset, char *to_charset, char *inbuf, int inlen, char *outbuf, int outlen){$/;"	f	signature:(char *from_charset, char *to_charset, char *inbuf, int inlen, char *outbuf, int outlen)
 dayu	examples/includes.h	9;"	d
 duoyun	examples/includes.h	5;"	d
 epd_mode	examples/main.c	/^int epd_mode = 0; \/\/0: no rotate, no mirror$/;"	v
@@ -424,6 +428,7 @@ refminx	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	
 refminy	examples/network.c	/^int refreshType,refminx,refminy,refwid,refhei;$/;"	v
 refreshNetData	examples/network.c	/^void* refreshNetData(void* data){$/;"	f	signature:(void* data)
 refreshNetData	examples/network.h	/^void* refreshNetData(void* data);$/;"	p	signature:(void* data)
+refreshSentence	examples/main.c	/^int refreshSentence;$/;"	v
 refreshTemp	examples/network.c	/^char refreshTemp,refreshText=1;$/;"	v
 refreshText	examples/network.c	/^char refreshTemp,refreshText=1;$/;"	v
 refreshTrace	examples/main.c	/^int refreshTrace;$/;"	v
@@ -444,6 +449,7 @@ th_net	examples/main.c	/^pthread_t th,th_net;$/;"	v
 thread	examples/main.c	/^void *thread(void *arg)$/;"	f	signature:(void *arg)
 time2Nums	examples/display.c	/^void time2Nums(struct tm *t, char *nums)$/;"	f	signature:(struct tm *t, char *nums)
 weather	examples/main.c	/^int weather;$/;"	v
+write_data	examples/network.c	/^size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream){$/;"	f	signature:(void *ptr, size_t size, size_t nmemb, void *stream)
 xiaoyu	examples/includes.h	7;"	d
 yin	examples/includes.h	4;"	d
 zhongyu	examples/includes.h	8;"	d

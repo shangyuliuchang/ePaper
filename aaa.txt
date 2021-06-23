@@ -1,0 +1,29 @@
+
+				memset(recv,0,sizeof(recv));
+    			i = read(sockfd, recv, 4096);
+    			printf("%d bytes of data have been received\n", i);
+    			if (i > 0)
+    			{
+    			    fp = fopen("recv.txt", "w");
+					search=strstr(recv,"\"tem\":")+7;
+    			    fprintf(fp, "%s", recv);
+					sscanf(search,"%d\"",&temperature);
+					printf("temperature: %d\n",temperature);
+					search=strstr(recv,"\"humidity\":\"")+12;
+					sscanf(search,"%d",&humidity);
+					search=strstr(recv,"\"wea\"")+7;
+					if(search[0]=='\\' && search[1]=='u' && search[2]=='9') weather=yin;
+					else if(search[0]=='\\' && search[1]=='u' && search[2]=='5'){
+						if(search[3]=='9'){
+							if(search[4]=='1')weather=duoyun;
+							else if(search[4]=='2')weather=dayu;
+						}
+						else if(search[3]=='c') weather=xiaoyu;
+					}
+					else if(search[0]=='\\' && search[1]=='u' && search[2]=='4')weather=zhongyu;
+					else if(search[0]=='\\' && search[1]=='u' && search[2]=='6') weather=qing;
+    			    fclose(fp);
+					refreshTemp=1;
+    			}
+				close(sockfd);
+			}

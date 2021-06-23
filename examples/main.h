@@ -20,4 +20,5 @@ extern int refreshTrace;
 extern int pointList[1000][2],pointNum;
 extern int humidity;
 extern int weather;
+extern int refreshSentence;
 #endif

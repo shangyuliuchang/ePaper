@@ -22,6 +22,7 @@
 #include <netdb.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <curl/curl.h>
 
 #include "../lib/e-Paper/EPD_IT8951.h"
 #include "../lib/GUI/GUI_Paint.h"
@@ -37,6 +38,7 @@
 #include"../examples/network.h"
 #include"../examples/main.h"
 #include"../examples/display.h"
+#include <iconv.h>
 
 
 

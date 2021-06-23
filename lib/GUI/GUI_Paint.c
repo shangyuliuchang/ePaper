@@ -68,6 +68,7 @@
 #include <stdlib.h>
 #include <string.h> //memset()
 #include <math.h>
+#include "../Fonts/HZK24.h"
 
 PAINT Paint;
 
@@ -668,6 +669,104 @@ void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT
             p_text += 2;
             /* Decrement the column position by 16 */
             x += font->Width;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+void Paint_DrawString_CN_Try(UWORD Xstart, UWORD Ystart, const char * pString, cFONT *font,
+                        UWORD Color_Foreground, UWORD Color_Background)
+{
+    const char* p_text = pString;
+    int x = Xstart, y = Ystart;
+    int i, j;//, Num;
+
+    /* Send the string character by character on EPD */
+    while (*p_text != 0) {
+        if(*p_text <= 0x7F) {  //ASCII < 126
+//            for(Num = 0; Num < font->size; Num++) {
+//                if(*p_text== font->table[Num].index[0]) {
+//                    const char* ptr = &font->table[Num].matrix[0];
+//
+//                    for (j = 0; j < font->Height; j++) {
+//                        for (i = 0; i < font->Width; i++) {
+//                            if (FONT_BACKGROUND == Color_Background) { //this process is to speed up the scan
+//                                if (*ptr & (0x80 >> (i % 8))) {
+//                                    Paint_SetPixel(x + i*2, y + j*2, Color_Foreground);
+//                                    // Paint_DrawPoint(x + i, y + j, Color_Foreground, DOT_PIXEL_DFT, DOT_STYLE_DFT);
+//                                }
+//                            } else {
+//                                if (*ptr & (0x80 >> (i % 8))) {
+//                                    Paint_SetPixel(x + i*2, y + j*2, Color_Foreground);
+//                                    // Paint_DrawPoint(x + i, y + j, Color_Foreground, DOT_PIXEL_DFT, DOT_STYLE_DFT);
+//                                } else {
+//                                    Paint_SetPixel(x + i*2, y + j*2, Color_Background);
+//                                    // Paint_DrawPoint(x + i, y + j, Color_Background, DOT_PIXEL_DFT, DOT_STYLE_DFT);
+//                                }
+//                            }
+//                            if (i % 8 == 7) {
+//                                ptr++;
+//                            }
+//                        }
+//                        if (font->Width % 8 != 0) {
+//                            ptr++;
+//                        }
+//                    }
+//                    break;
+//                }
+//            }
+//            /* Point on the next character */
+//            p_text += 1;
+//            /* Decrement the column position by 16 */
+//            x += font->ASCII_Width*2;
+        } else {        //Chinese
+			if(p_text[0]>=0xA1 && p_text[0]<=0xFE){
+				printf("try to print CH:%d, %d\n",p_text[0], p_text[1]);
+				char* ptr = (char *)HZK24[((p_text[0]-0xA1)*94+(p_text[1]-0xA1))*3];
+				for (j = 0; j < 24; j++) {
+					for (i = 0; i < 24; i++) {
+						if (FONT_BACKGROUND == Color_Background) { //this process is to speed up the scan
+							if (*ptr & (0x80 >> (i % 8))) {
+								Paint_SetPixel(x + j*2, y + i*2, Color_Foreground);
+								Paint_SetPixel(x + j*2+1, y + i*2, Color_Foreground);
+								Paint_SetPixel(x + j*2, y + i*2+1, Color_Foreground);
+								Paint_SetPixel(x + j*2+1, y + i*2+1, Color_Foreground);
+								// Paint_DrawPoint(x + i, y + j, Color_Foreground, DOT_PIXEL_DFT, DOT_STYLE_DFT);
+							}
+						} else {
+							if (*ptr & (0x80 >> (i % 8))) {
+								Paint_SetPixel(x + j*2, y + i*2, Color_Foreground);
+								Paint_SetPixel(x + j*2+1, y + i*2, Color_Foreground);
+								Paint_SetPixel(x + j*2, y + i*2+1, Color_Foreground);
+								Paint_SetPixel(x + j*2+1, y + i*2+1, Color_Foreground);
+								// Paint_DrawPoint(x + i, y + j, Color_Foreground, DOT_PIXEL_DFT, DOT_STYLE_DFT);
+							} else {
+								Paint_SetPixel(x + j*2, y + i*2, Color_Background);
+								Paint_SetPixel(x + j*2+1, y + i*2, Color_Background);
+								Paint_SetPixel(x + j*2, y + i*2+1, Color_Background);
+								Paint_SetPixel(x + j*2+1, y + i*2+1, Color_Background);
+								// Paint_DrawPoint(x + i, y + j, Color_Background, DOT_PIXEL_DFT, DOT_STYLE_DFT);
+							}
+						}
+						if (i % 8 == 7) {
+							ptr++;
+						}
+					}
+					if (24 % 8 != 0) {
+						ptr++;
+					}
+				}
+			}
+            /* Point on the next character */
+            p_text += 2;
+            /* Decrement the column position by 16 */
+            x += 24*2;
         }
     }
 }

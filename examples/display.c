@@ -1,6 +1,17 @@
 #include"includes.h"
 
 
+int code_convert(char *from_charset, char *to_charset, char *inbuf, int inlen, char *outbuf, int outlen){
+	iconv_t cd;
+	char **pin=&inbuf;
+	char **pout=&outbuf;
+	cd=iconv_open(to_charset, from_charset);
+	if(cd==0)return -1;
+	memset(outbuf, 0, outlen);
+	if(iconv(cd, pin, (unsigned int *)&inlen, pout, (unsigned int *)&outlen)==-1) return -1;
+	iconv_close(cd);
+	return 0;
+}
 static void Epd_Mode(int mode)
 {
     if (mode == 1)
@@ -41,8 +52,8 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
     Refresh_Frame_Buf = (UBYTE *)malloc(Imagesize);
 	
 	FILE *fp;
-	char recvText[1000],*tmp;
-    int x, y;
+	char recvText[1000],*tmp, convert[1000], shortstr[10];
+    int x, y, linecnt;
 	int minX,maxX,minY,maxY;
 	int timImgH=300,timImgW=256;
     time_t nowTime, lastTime;
@@ -237,7 +248,38 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 	    	EPD_IT8951_1bp_Refresh_DisplayOnly(Refresh_Frame_Buf, minX, timImgH+minY, maxX-minX+1, maxY-minY+1, A2_Mode, Init_Target_Memory_Addr, true);
 			pointNum=0;
 		}
+		if(refreshSentence){
+			refreshSentence=0;
+			fp=fopen("body.txt","r");
+			if(fp>0){
+				fgets(convert, 1000, fp);
+				//fgets(recvText, 1000, fp);
+				fclose(fp);
+				//code_convert("utf-8", "gb2312", recvText, strlen(recvText), convert, 1000);
+				printf("%s\n", convert);
 
+				Paint_NewImage(Refresh_Frame_Buf,96, 700,0, WHITE);
+				Paint_SelectImage(Refresh_Frame_Buf);
+				Epd_Mode(epd_mode);
+				Paint_SetBitsPerPixel(1);
+				Paint_Clear(WHITE);
+				linecnt=0;
+				for(int i=0;i<strlen(convert);i++){
+					if(convert[i]>=160){
+						shortstr[0]=convert[i];
+						shortstr[1]=convert[i+1];
+						shortstr[2]=0;
+						i++;
+					}else{
+						shortstr[0]=convert[i];
+						shortstr[1]=0;
+					}
+					Paint_DrawString_CN_Try(((linecnt*24*2)/650)*48,(linecnt*24*2)%650, shortstr, &Font24CN, 0x00, 0xFF);
+					linecnt++;
+				}
+				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 1344, 300, 96, 700, A2_Mode, Init_Target_Memory_Addr, true);
+			}
+		}
 
     }
     if (Refresh_Frame_Buf != NULL)

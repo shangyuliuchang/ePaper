@@ -1,0 +1,22 @@
+HTTP/2 200 
+server: NWS_TCloud_static_hy_soc2
+date: Wed, 23 Jun 2021 08:13:59 GMT
+content-type: text/plain; charset=gbk
+x-nws-uuid-verify: 14a20b9941aeec03753995f527746c95
+x-request-id: d6a2a77b-7317-406e-adad-3f0e0f157144
+content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+x-dns-prefetch-control: off
+expect-ct: max-age=0
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=15552000; includeSubDomains
+x-download-options: noopen
+x-content-type-options: nosniff
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+x-xss-protection: 0
+vary: Origin
+x-daa-tunnel: hop_count=2
+content-length: 14
+x-nws-log-uuid: 16698405146581926257
+x-cache-lookup: Cache Miss
+

@@ -31,6 +31,7 @@ int refreshTrace;
 int pointList[1000][2],pointNum;
 int humidity;
 int weather;
+int refreshSentence=1;
 
 void *thread(void *arg)
 {

@@ -3,6 +3,10 @@
 char refreshTemp,refreshText=1;
 int refreshType,refminx,refminy,refwid,refhei;
 
+size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream){
+	int written = fwrite(ptr, size, nmemb, (FILE *)stream);
+	return written;
+}
 void handle(){}
 void* refreshNetData(void* data){
     int sockfd, ret, i,cnt;
@@ -11,6 +15,9 @@ void* refreshNetData(void* data){
     FILE *fp = NULL;
     char send[200], recv[4096],*search;//,tmpe,*tmp;
 	cnt=250*5;
+	FILE *recvHead, *recvBody;
+	CURL *curlHandle;
+	curl_global_init(CURL_GLOBAL_ALL);
 	while(!finishFlag){
 		sleep(1);
 		time(&now);
@@ -40,7 +47,6 @@ void* refreshNetData(void* data){
     			printf("send length: %d", ret);
 
 
-
 				memset(recv,0,sizeof(recv));
     			i = read(sockfd, recv, 4096);
     			printf("%d bytes of data have been received\n", i);
@@ -68,6 +74,25 @@ void* refreshNetData(void* data){
 					refreshTemp=1;
     			}
 				close(sockfd);
+			}
+			if(now%60==0 && !refreshSentence){
+				curlHandle=curl_easy_init();
+				curl_easy_setopt(curlHandle, CURLOPT_URL, "https://v1.hitokoto.cn/?encode=text&charset=gbk");
+				curl_easy_setopt(curlHandle, CURLOPT_NOPROGRESS, 1L);
+				curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, write_data);
+				recvHead=fopen("header.txt","wb");
+				recvBody=fopen("body.txt","wb");
+				if(recvHead>0 && recvBody>0){
+					curl_easy_setopt(curlHandle, CURLOPT_WRITEHEADER, recvHead);
+					curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, recvBody);
+					curl_easy_perform(curlHandle);
+					fclose(recvHead);
+					fclose(recvBody);
+					curl_easy_cleanup(curlHandle);
+					refreshSentence = 1;
+				}else{
+					curl_easy_cleanup(curlHandle);
+				}
 			}
 
 		//	signal(SIGALRM,handle);
