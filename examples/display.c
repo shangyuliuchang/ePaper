@@ -37,7 +37,7 @@ void time2Nums(struct tm *t, char *nums)
 void SSD(int x, int y, char *type,  char num)
 {
     char filename[100];
-    sprintf(filename, "/home/pi/Documents/project/ePaper/myPro/pic/%s_%d.bmp",type, num);
+    sprintf(filename, "/home/pi/project/ePaper/ePaper/pic/%s_%d.bmp",type, num);
     GUI_ReadBmp(filename, x, y);
 }
 UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memory_Addr)
@@ -85,8 +85,8 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
     Paint_SelectImage(Refresh_Frame_Buf);
     Epd_Mode(epd_mode);
     Paint_SetBitsPerPixel(1);
-	GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/mon_back.bmp",0,0);
-	GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_qing.bmp",200,160);
+	GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/mon_back.bmp",0,0);
+	GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_qing.bmp",200,160);
 	lastMon[0]=0;
 	lastMon[1]=0;
 	lastDay[0]=0;
@@ -152,19 +152,19 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
     			Paint_SelectImage(Refresh_Frame_Buf);
     			Epd_Mode(epd_mode);
     			Paint_SetBitsPerPixel(1);
-				GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/mon_back.bmp",0,0);
+				GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/mon_back.bmp",0,0);
 				switch(weather){
-					case yin:GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_yin.bmp",200,160);
+					case yin:GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_yin.bmp",200,160);
 						break;
-					case duoyun:GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_duoyun.bmp",200,160);
+					case duoyun:GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_duoyun.bmp",200,160);
 						break;
-					case qing:GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_qing.bmp",200,160);
+					case qing:GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_qing.bmp",200,160);
 						break;
-					case xiaoyu:GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_xiaoyu.bmp",200,160);
+					case xiaoyu:GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_xiaoyu.bmp",200,160);
 						break;
-					case zhongyu:GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_zhongyu.bmp",200,160);
+					case zhongyu:GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_zhongyu.bmp",200,160);
 						break;
-					case dayu:GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/wea_dayu.bmp",200,160);
+					case dayu:GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/wea_dayu.bmp",200,160);
 						break;
 				}
 			
@@ -192,35 +192,39 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
         }
 		if(refreshText){
 			if(refreshType==0){
-    			Paint_NewImage(Refresh_Frame_Buf,1344,1072-timImgH, 0, WHITE);
-    			Paint_SelectImage(Refresh_Frame_Buf);
-    			Epd_Mode(epd_mode);
-    			Paint_SetBitsPerPixel(1);
-				fp=fopen("/home/pi/Documents/project/ePaper/myPro/recvFromHost.txt","r");
-				memset(recvText,0,sizeof(recvText));
-				tmp=recvText;
-				while(!feof(fp))*(tmp++)=fgetc(fp); 
-				printf("%s\n",recvText);
-				fclose(fp);
+				fp=fopen("/home/pi/project/ePaper/ePaper/recvFromHost.txt","r");
+				if(fp){
+					Paint_NewImage(Refresh_Frame_Buf,1344,1072-timImgH, 0, WHITE);
+					Paint_SelectImage(Refresh_Frame_Buf);
+					Epd_Mode(epd_mode);
+					Paint_SetBitsPerPixel(1);
+					memset(recvText,0,sizeof(recvText));
+					tmp=recvText;
+					while(!feof(fp))*(tmp++)=fgetc(fp); 
+					printf("%s\n",recvText);
+					fclose(fp);
 
-				GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/text_back.bmp",0,0);
-        		Paint_DrawString_EN(0,0 , recvText, &Font20, 0x00, 0xFF);
-	    		EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 0, timImgH, 1344, 1072-timImgH, A2_Mode, Init_Target_Memory_Addr, true);
+					GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/text_back.bmp",0,0);
+					Paint_DrawString_EN(0,0 , recvText, &Font20, 0x00, 0xFF);
+					EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 0, timImgH, 1344, 1072-timImgH, A2_Mode, Init_Target_Memory_Addr, true);
+				}
 				refreshText=0;
 			}else if(refreshType==1){
-    			Paint_NewImage(Refresh_Frame_Buf,refwid,refhei, 0, WHITE);
-    			Paint_SelectImage(Refresh_Frame_Buf);
-    			Epd_Mode(epd_mode);
-    			Paint_SetBitsPerPixel(1);
-				fp=fopen("/home/pi/Documents/project/ePaper/myPro/recvFromHost.txt","r");
-				memset(recvText,0,sizeof(recvText));
-				tmp=recvText;
-				while(!feof(fp))*(tmp++)=fgetc(fp); 
-				printf("%s\n",recvText);
-				fclose(fp);
+				fp=fopen("/home/pi/project/ePaper/ePaper/recvFromHost.txt","r");
+				if(fp){
+					Paint_NewImage(Refresh_Frame_Buf,refwid,refhei, 0, WHITE);
+					Paint_SelectImage(Refresh_Frame_Buf);
+					Epd_Mode(epd_mode);
+					Paint_SetBitsPerPixel(1);
+					memset(recvText,0,sizeof(recvText));
+					tmp=recvText;
+					while(!feof(fp))*(tmp++)=fgetc(fp); 
+					printf("%s\n",recvText);
+					fclose(fp);
 
-				GUI_ReadBmp("/home/pi/Documents/project/ePaper/myPro/pic/text_back_seg.bmp",0,0);
-	    		EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, refminx,refminy,refwid,refhei, A2_Mode, Init_Target_Memory_Addr, true);
+					GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/text_back_seg.bmp",0,0);
+					EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, refminx,refminy,refwid,refhei, A2_Mode, Init_Target_Memory_Addr, true);
+				}
 				refreshText=0;
 			}
 
@@ -258,7 +262,7 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 				//code_convert("utf-8", "gb2312", recvText, strlen(recvText), convert, 1000);
 				printf("%s\n", convert);
 
-				Paint_NewImage(Refresh_Frame_Buf,96, 700,0, WHITE);
+				Paint_NewImage(Refresh_Frame_Buf,48 * 2, 700,0, WHITE);
 				Paint_SelectImage(Refresh_Frame_Buf);
 				Epd_Mode(epd_mode);
 				Paint_SetBitsPerPixel(1);
@@ -275,10 +279,10 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 						shortstr[0]=convert[i];
 						shortstr[1]=0;
 					}
-					Paint_DrawString_CN_Try(((linecnt*24*2)/650)*48,(linecnt*24*2)%650, shortstr, &Font24CN, 0x00, 0xFF);
+					Paint_DrawString_CN_Try((1 - (linecnt*24*2)/650)*48,(linecnt*24*2)%650, shortstr, &Font24CN, 0x00, 0xFF);
 					linecnt++;
 				}
-				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 1344, 300, 96, 700, A2_Mode, Init_Target_Memory_Addr, true);
+				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 1344, 300, 48 * 2, 700, A2_Mode, Init_Target_Memory_Addr, true);
 			}
 		}
 			if(refreshFig && p->tm_min%2==0){
@@ -290,7 +294,7 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 				Epd_Mode(epd_mode);
 				Paint_SetBitsPerPixel(1);
 				Paint_Clear(WHITE);
-				GUI_ReadBmp("./pic/random.bmp",0,0);
+				GUI_ReadBmp2("./pic/random.bmp",0,0, 1344, 722);
 				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 0,300,1344, 772, A2_Mode, Init_Target_Memory_Addr, true);
 				refreshFig=0;
 			}

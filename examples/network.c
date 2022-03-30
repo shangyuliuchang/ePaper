@@ -105,7 +105,8 @@ void* refreshNetData(void* data){
 
 				if(!refreshFig && p->tm_min%2){
 					curlHandle=curl_easy_init();
-					curl_easy_setopt(curlHandle, CURLOPT_URL, "https://img.xjh.me/random_img.php");
+					//curl_easy_setopt(curlHandle, CURLOPT_URL, "https://picsum.photos/1920/1080.jpg");
+					curl_easy_setopt(curlHandle, CURLOPT_URL, "https://img.xjh.me/random_img.php?type=bg&ctype=acg");
 					curl_easy_setopt(curlHandle, CURLOPT_NOPROGRESS, 1L);
 					curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, write_data);
 					recvHead=fopen("header.txt","wb");
@@ -128,38 +129,43 @@ void* refreshNetData(void* data){
 
 					fp=fopen("./pic/random.txt","r");
 					fgets(recv,1000,fp);
-					search=strstr(recv,"src=")-1;
-					search[0]='h';
-					search[1]='t';
-					search[2]='t';
-					search[3]='p';
-					search[4]='s';
-					search[5]=':';
-					for(int i=0;i<strlen(search);i++)
-					  if(search[i]=='\"'){
-						  search[i]=0;
-						  break;
-					  }
+					fclose(fp);
+					search=strstr(recv,"src=");
+					if(search){
+						search--;
+						search[0]='h';
+						search[1]='t';
+						search[2]='t';
+						search[3]='p';
+						search[4]='s';
+						search[5]=':';
+						//search[4]=':';
+						for(int i=0;i<strlen(search);i++)
+						  if(search[i]=='\"'){
+							  search[i]=0;
+							  break;
+						  }
 
-					printf("url:%s\n",search);
-					curlHandle=curl_easy_init();
-					curl_easy_setopt(curlHandle, CURLOPT_URL, search);
-					curl_easy_setopt(curlHandle, CURLOPT_NOPROGRESS, 1L);
-					curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, write_data);
-					recvHead=fopen("header.txt","wb");
-					recvBody=fopen("./pic/random.jpg","wb");
-					if(recvHead>0 && recvBody>0){
-						curl_easy_setopt(curlHandle, CURLOPT_WRITEHEADER, recvHead);
-						curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, recvBody);
-						curl_easy_perform(curlHandle);
-						fclose(recvHead);
-						fclose(recvBody);
-						curl_easy_cleanup(curlHandle);
-						printf("receive figure done!\n");
-					}else{
-						curl_easy_cleanup(curlHandle);
-						fclose(recvHead);
-						fclose(recvBody);
+						printf("url:%s\n",search);
+						curlHandle=curl_easy_init();
+						curl_easy_setopt(curlHandle, CURLOPT_URL, search);
+						curl_easy_setopt(curlHandle, CURLOPT_NOPROGRESS, 1L);
+						curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, write_data);
+						recvHead=fopen("header.txt","wb");
+						recvBody=fopen("./pic/random.jpg","wb");
+						if(recvHead>0 && recvBody>0){
+							curl_easy_setopt(curlHandle, CURLOPT_WRITEHEADER, recvHead);
+							curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, recvBody);
+							curl_easy_perform(curlHandle);
+							fclose(recvHead);
+							fclose(recvBody);
+							curl_easy_cleanup(curlHandle);
+							printf("receive figure done!\n");
+						}else{
+							curl_easy_cleanup(curlHandle);
+							fclose(recvHead);
+							fclose(recvBody);
+						}
 					}
 					refreshFig=1;
 				}
@@ -259,12 +265,12 @@ void *recvPic(void* arg){
 		send(connfd,"begin",5,0);
 
 		if(refreshType==0){
-			if((fp=fopen("/home/pi/Documents/project/ePaper/myPro/pic/text_back.bmp","wb"))==NULL){
+			if((fp=fopen("/home/pi/project/ePaper/ePaper/pic/text_back.bmp","wb"))==NULL){
 				printf("\n\n\nOPEN FILE FAILED\n\n\n");
 				return NULL;
 			}
 		}else{
-			if((fp=fopen("/home/pi/Documents/project/ePaper/myPro/pic/text_back_seg.bmp","wb"))==NULL){
+			if((fp=fopen("/home/pi/project/ePaper/ePaper/pic/text_back_seg.bmp","wb"))==NULL){
 				printf("\n\n\nOPEN FILE FAILED\n\n\n");
 				return NULL;
 			}

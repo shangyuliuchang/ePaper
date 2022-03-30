@@ -1,22 +1,16 @@
-HTTP/2 200 
-server: NWS_TCloud_static_hy_soc2
-date: Wed, 23 Jun 2021 15:38:00 GMT
-content-type: text/plain; charset=gbk
-x-nws-uuid-verify: 94b0a1bfd819d021ae2e7a9a6523d4f8
-x-request-id: 3ba8ee76-0491-4da5-a038-77422d2451e5
-content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
-x-dns-prefetch-control: off
-expect-ct: max-age=0
-x-frame-options: SAMEORIGIN
-strict-transport-security: max-age=15552000; includeSubDomains
-x-download-options: noopen
+HTTP/2 302 
+date: Wed, 30 Mar 2022 11:33:01 GMT
+content-length: 0
+location: https://i.picsum.photos/id/791/1920/1080.jpg?hmac=lwUwAhUwePB_Xfst5z0YDROe5Q7nvyEhOyE6e6WEKNo
+strict-transport-security: max-age=15552000
+access-control-allow-origin: *
+cache-control: no-cache, no-store, must-revalidate
+cf-cache-status: BYPASS
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+report-to: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=mXjv%2BiBbiKwDIuxurEWoJcoS7GZ2Vhbr6qm8GzAV0QHWF9KGcjqi3coBSL%2FHRneIAT5BEpyzJqEhntWi%2FT0reCTP5arm3L3uEgc7CksGvvDuBlNuS2qZbYu4mUFJ0qE%3D"}],"group":"cf-nel","max_age":604800}
+nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
 x-content-type-options: nosniff
-x-permitted-cross-domain-policies: none
-referrer-policy: no-referrer
-x-xss-protection: 0
-vary: Origin
-x-daa-tunnel: hop_count=2
-content-length: 27
-x-nws-log-uuid: 16557229945118358881
-x-cache-lookup: Cache Miss
+server: cloudflare
+cf-ray: 6f40872a6c2c344b-NRT
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
 

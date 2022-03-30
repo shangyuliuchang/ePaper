@@ -64,8 +64,8 @@ typedef struct _tFont
 //GB2312
 typedef struct                                          // ������ģ���ݽṹ
 {
-  const  char index[2];                               // ������������
-  const  char matrix[MAX_HEIGHT_FONT*MAX_WIDTH_FONT/8+2];  // ����������
+  const  char index[3];                               // ������������
+  const  char matrix[MAX_HEIGHT_FONT*MAX_WIDTH_FONT/8+3];  // ����������
 }CH_CN;
 
 
