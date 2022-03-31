@@ -48,7 +48,7 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
     UDOUBLE Imagesize;
 
     //malloc enough memory for 1bp picture first
-    Imagesize = ((Panel_Width * 1 % 8 == 0) ? (Panel_Width * 1 / 8) : (Panel_Width * 1 / 8 + 1)) * Panel_Height;
+    Imagesize = ((Panel_Width * 8 % 8 == 0) ? (Panel_Width * 8 / 8) : (Panel_Width * 8 / 8 + 1)) * Panel_Height;
     Refresh_Frame_Buf = (UBYTE *)malloc(Imagesize);
 	
 	FILE *fp;
@@ -197,16 +197,16 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 					Paint_NewImage(Refresh_Frame_Buf,1344,1072-timImgH, 0, WHITE);
 					Paint_SelectImage(Refresh_Frame_Buf);
 					Epd_Mode(epd_mode);
-					Paint_SetBitsPerPixel(1);
+					Paint_SetBitsPerPixel(4);
 					memset(recvText,0,sizeof(recvText));
 					tmp=recvText;
 					while(!feof(fp))*(tmp++)=fgetc(fp); 
 					printf("%s\n",recvText);
 					fclose(fp);
 
-					GUI_ReadBmp("/home/pi/project/ePaper/ePaper/pic/text_back.bmp",0,0);
+					GUI_ReadBmp2("/home/pi/project/ePaper/ePaper/pic/text_back.bmp", 0, 0, 1344, 772);
 					Paint_DrawString_EN(0,0 , recvText, &Font20, 0x00, 0xFF);
-					EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 0, timImgH, 1344, 1072-timImgH, A2_Mode, Init_Target_Memory_Addr, true);
+					EPD_IT8951_4bp_Refresh(Refresh_Frame_Buf, 0, timImgH, 1344, 1072-timImgH, A2_Mode, Init_Target_Memory_Addr, true);
 				}
 				refreshText=0;
 			}else if(refreshType==1){
@@ -292,10 +292,10 @@ UBYTE Dynamic_Refresh_Example(IT8951_Dev_Info Dev_Info, UDOUBLE Init_Target_Memo
 				Paint_NewImage(Refresh_Frame_Buf,1344, 772,0, WHITE);
 				Paint_SelectImage(Refresh_Frame_Buf);
 				Epd_Mode(epd_mode);
-				Paint_SetBitsPerPixel(1);
+				Paint_SetBitsPerPixel(4);
 				Paint_Clear(WHITE);
-				GUI_ReadBmp2("./pic/random.bmp",0,0, 1344, 722);
-				EPD_IT8951_1bp_Refresh(Refresh_Frame_Buf, 0,300,1344, 772, A2_Mode, Init_Target_Memory_Addr, true);
+				GUI_ReadBmp2("./pic/random.bmp",0,0, 1344, 772);
+				EPD_IT8951_4bp_Refresh(Refresh_Frame_Buf, 0,300,1344, 772, GC16_Mode, Init_Target_Memory_Addr, true);
 				refreshFig=0;
 			}
     }

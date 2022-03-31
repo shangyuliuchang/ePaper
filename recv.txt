@@ -1,6 +1,6 @@
 HTTP/1.1 200 OK
 Server: nginx
-Date: Wed, 30 Mar 2022 11:22:47 GMT
+Date: Thu, 31 Mar 2022 06:10:45 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -11,7 +11,7 @@ Access-Control-Allow-Headers: *
 Access-Control-Request-Headers: *
 Access-Control-Allow-Credentials: true
 
-293
-{"cityid":"101020200","date":"2022-03-30","week":"\u661f\u671f\u4e09","update_time":"2022-03-30 18:24","city":"\u95f5\u884c","cityEn":"minhang","country":"\u4e2d\u56fd","countryEn":"China","wea":"\u591a\u4e91","wea_img":"yun","tem":"20","tem1":"25","tem2":"11","win":"\u4e1c\u5317\u98ce","win_speed":"2\u7ea7","win_meter":"8km\/h","humidity":"62%","visibility":"9km","pressure":"1018","air":"17","air_pm25":"17","air_level":"\u4f18","air_tips":"\u7a7a\u6c14\u5f88\u597d\uff0c\u53ef\u4ee5\u5916\u51fa\u6d3b\u52a8\uff0c\u547c\u5438\u65b0\u9c9c\u7a7a\u6c14\uff0c\u62e5\u62b1\u5927\u81ea\u7136\uff01","alarm":{"alarm_type":"","alarm_level":"","alarm_content":""}}
+28e
+{"cityid":"101020200","date":"2022-03-31","week":"\u661f\u671f\u56db","update_time":"2022-03-31 13:15","city":"\u95f5\u884c","cityEn":"minhang","country":"\u4e2d\u56fd","countryEn":"China","wea":"\u591a\u4e91","wea_img":"yun","tem":"13","tem1":"15","tem2":"7","win":"\u5317\u98ce","win_speed":"3\u7ea7","win_meter":"12km\/h","humidity":"63%","visibility":"15km","pressure":"1027","air":"32","air_pm25":"32","air_level":"\u4f18","air_tips":"\u7a7a\u6c14\u5f88\u597d\uff0c\u53ef\u4ee5\u5916\u51fa\u6d3b\u52a8\uff0c\u547c\u5438\u65b0\u9c9c\u7a7a\u6c14\uff0c\u62e5\u62b1\u5927\u81ea\u7136\uff01","alarm":{"alarm_type":"","alarm_level":"","alarm_content":""}}
 0
 

@@ -341,27 +341,80 @@ static void DrawMatrix2(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBY
 		}
 	}
 
-	if(bitCount>=8)
-	for (y=0,j=Ypos;y<targetH;y++,j++){
- 		for (x=0,i=Xpos;x<targetW;x++,i++){
-			sub=((int16_t)(grayBuf[y*targetW+x])-(int16_t)((grayBuf[y*targetW+x]>>7)*255));
-			if(x<targetW-1){
-				tmp=(int16_t)(grayBuf[y*targetW+x+1])+sub*3/8;
-				if(tmp>255)tmp=255;
-				if(tmp<0)tmp=0;
-				grayBuf[y*targetW+x+1]=(uint8_t)tmp;
+	if(bitCount>=8){
+		if(Paint.BitsPerPixel == 1){
+			for (y=0,j=Ypos;y<targetH;y++,j++){
+				for (x=0,i=Xpos;x<targetW;x++,i++){
+					sub=((int16_t)(grayBuf[y*targetW+x])-(int16_t)((grayBuf[y*targetW+x]>>7)*255));
+					if(x<targetW-1){
+						tmp=(int16_t)(grayBuf[y*targetW+x+1])+sub*3/8;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[y*targetW+x+1]=(uint8_t)tmp;
+					}
+					if(y<targetH-1){
+						tmp=(int16_t)(grayBuf[(y+1)*targetW+x])+sub*3/8;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[(y+1)*targetW+x]=(uint8_t)tmp;
+					}
+					if(x<targetW-1 && y<targetH-1){
+						tmp=(int16_t)(grayBuf[(y+1)*targetW+x+1])+sub/4;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[(y+1)*targetW+x+1]=(uint8_t)tmp;
+					}
+				}
 			}
-			if(y<targetH-1){
-				tmp=(int16_t)(grayBuf[(y+1)*targetW+x])+sub*3/8;
-				if(tmp>255)tmp=255;
-				if(tmp<0)tmp=0;
-				grayBuf[(y+1)*targetW+x]=(uint8_t)tmp;
+		}
+		if(Paint.BitsPerPixel == 2){
+			for (y=0,j=Ypos;y<targetH;y++,j++){
+				for (x=0,i=Xpos;x<targetW;x++,i++){
+					sub=((int16_t)(grayBuf[y*targetW+x])-(int16_t)((grayBuf[y*targetW+x]>>6)*85));
+					if(x<targetW-1){
+						tmp=(int16_t)(grayBuf[y*targetW+x+1])+sub*3/8;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[y*targetW+x+1]=(uint8_t)tmp;
+					}
+					if(y<targetH-1){
+						tmp=(int16_t)(grayBuf[(y+1)*targetW+x])+sub*3/8;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[(y+1)*targetW+x]=(uint8_t)tmp;
+					}
+					if(x<targetW-1 && y<targetH-1){
+						tmp=(int16_t)(grayBuf[(y+1)*targetW+x+1])+sub/4;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[(y+1)*targetW+x+1]=(uint8_t)tmp;
+					}
+				}
 			}
-			if(x<targetW-1 && y<targetH-1){
-				tmp=(int16_t)(grayBuf[(y+1)*targetW+x+1])+sub/4;
-				if(tmp>255)tmp=255;
-				if(tmp<0)tmp=0;
-				grayBuf[(y+1)*targetW+x+1]=(uint8_t)tmp;
+		}
+		if(Paint.BitsPerPixel == 4){
+			for (y=0,j=Ypos;y<targetH;y++,j++){
+				for (x=0,i=Xpos;x<targetW;x++,i++){
+					sub=((int16_t)(grayBuf[y*targetW+x])-(int16_t)((grayBuf[y*targetW+x]>>4)*17));
+					if(x<targetW-1){
+						tmp=(int16_t)(grayBuf[y*targetW+x+1])+sub*3/8;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[y*targetW+x+1]=(uint8_t)tmp;
+					}
+					if(y<targetH-1){
+						tmp=(int16_t)(grayBuf[(y+1)*targetW+x])+sub*3/8;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[(y+1)*targetW+x]=(uint8_t)tmp;
+					}
+					if(x<targetW-1 && y<targetH-1){
+						tmp=(int16_t)(grayBuf[(y+1)*targetW+x+1])+sub/4;
+						if(tmp>255)tmp=255;
+						if(tmp<0)tmp=0;
+						grayBuf[(y+1)*targetW+x+1]=(uint8_t)tmp;
+					}
+				}
 			}
 		}
 	}
