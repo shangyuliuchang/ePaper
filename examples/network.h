@@ -6,4 +6,5 @@ void *recvPic(void *args);
 extern char refreshTemp;
 extern char refreshText;
 extern int refreshType,refminx,refminy,refwid,refhei;
+size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream);
 #endif

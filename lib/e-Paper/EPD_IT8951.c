@@ -617,13 +617,23 @@ parameter:  Enhanced driving capability for IT8951, in case the blurred display 
 ******************************************************************************/
 void Enhance_Driving_Capability(void)
 {
-    UWORD RegValue = EPD_IT8951_ReadReg(0x0038);
-    Debug("The reg value before writing is %x\r\n", RegValue);
+//    UWORD RegValue = EPD_IT8951_ReadReg(0x0038);
+//    Debug("The reg value before writing is %x\r\n", RegValue);
 
     EPD_IT8951_WriteReg(0x0038, 0x0602);
 
-    RegValue = EPD_IT8951_ReadReg(0x0038);
-    Debug("The reg value after writing is %x\r\n", RegValue);
+//    RegValue = EPD_IT8951_ReadReg(0x0038);
+//    Debug("The reg value after writing is %x\r\n", RegValue);
+}
+void Cancle_Enhance_Driving_Capability(void)
+{
+//    UWORD RegValue = EPD_IT8951_ReadReg(0x0038);
+//    Debug("The reg value before writing is %x\r\n", RegValue);
+//
+    EPD_IT8951_WriteReg(0x0038, 0x0002);
+//
+//    RegValue = EPD_IT8951_ReadReg(0x0038);
+//    Debug("The reg value after writing is %x\r\n", RegValue);
 }
 
 
@@ -931,7 +941,7 @@ void EPD_IT8951_2bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H
 function :	EPD_IT8951_4bp_Refresh
 parameter:  
 ******************************************************************************/
-void EPD_IT8951_4bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, bool Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)
+void EPD_IT8951_4bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H, UBYTE Hold, UDOUBLE Target_Memory_Addr, bool Packed_Write)
 {
     IT8951_Load_Img_Info Load_Img_Info;
     IT8951_Area_Img_Info Area_Img_Info;
@@ -949,16 +959,16 @@ void EPD_IT8951_4bp_Refresh(UBYTE* Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H
     Area_Img_Info.Area_W = W;
     Area_Img_Info.Area_H = H;
 
-    EPD_IT8951_HostAreaPackedPixelWrite_4bp(&Load_Img_Info, &Area_Img_Info, Packed_Write);
+	EPD_IT8951_HostAreaPackedPixelWrite_4bp(&Load_Img_Info, &Area_Img_Info, Packed_Write);
 
-    if(Hold == true)
-    {
-        EPD_IT8951_Display_Area(X,Y,W,H, GC16_Mode);
-    }
-    else
-    {
-        EPD_IT8951_Display_AreaBuf(X,Y,W,H, GC16_Mode,Target_Memory_Addr);
-    }
+//    if(Hold == true)
+//    {
+        EPD_IT8951_Display_Area(X,Y,W,H, Hold);
+//    }
+//    else
+//    {
+//        EPD_IT8951_Display_AreaBuf(X,Y,W,H, GC16_Mode,Target_Memory_Addr);
+//    }
 }
 
 

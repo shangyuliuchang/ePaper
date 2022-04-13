@@ -279,7 +279,7 @@ static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYT
 		}
 	}
 }
-static void DrawMatrix2(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* Matrix, UBYTE bitCount, UWORD targetW, UWORD targetH)
+static void DrawMatrix2(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYTE* const Matrix, UBYTE bitCount, UWORD targetW, UWORD targetH)
 {
 	UWORD i,j,x,y;
 	UBYTE R,G,B;
@@ -287,59 +287,149 @@ static void DrawMatrix2(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBY
 	double Gray;
 	int16_t tmp, sub;
 	float ratio;
-	ratio = 1.0f;
+	ratio = 4.0f;
 	if((float)targetW / Width < ratio) ratio = (float)targetW / Width;
 	if((float)targetH / High < ratio) ratio = (float)targetH / High;
 	targetW = (UWORD)(ratio * Width);
 	targetH = (UWORD)(ratio * High);
 	
-	for (y=0,j=0;j<targetH;y++,j++)
-	{
- 		for (x=0,i=0;i<targetW;x++,i++)
-		{
-			x = (UWORD)(i / ratio);
-			y = (UWORD)(j / ratio);
-			switch(bmp_BitCount)
+	switch(bmp_BitCount){
+		case 1:
+		case 4:
+		case 8:
+			for (y=0,j=0;j<targetH;y++,j++)
 			{
-				case 1:
-				case 4:
-				case 8:
+				for (x=0,i=0;i<targetW;x++,i++)
+				{
+					x = (UWORD)(i / ratio);
+					y = (UWORD)(j / ratio);
+					if(x >= Width) x = Width - 1;
+					if(y >= High) y = High - 1;
 					R = palette[Matrix[(y*Width+x)]].rgbRed;
 					G = palette[Matrix[(y*Width+x)]].rgbGreen;
 					B = palette[Matrix[(y*Width+x)]].rgbBlue;
-				break;
-				
-				case 16:
+					Gray = (R*299 + G*587 + B*114 + 500) / 1000;
+					//Paint_SetPixel(i, j, Gray);
+					if(Gray>255)Gray=255;
+					if(Gray<0)Gray=0;
+					grayBuf[j*targetW+i]=Gray;
+				}
+			}
+			break;
+		case 16:
+			for (y=0,j=0;j<targetH;y++,j++)
+			{
+				for (x=0,i=0;i<targetW;x++,i++)
+				{
+					x = (UWORD)(i / ratio);
+					y = (UWORD)(j / ratio);
+					if(x >= Width) x = Width - 1;
+					if(y >= High) y = High - 1;
 					temp1 = Matrix[(y*Width+x)*2];
 					temp2 = Matrix[(y*Width+x)*2+1];
 					R = (temp1 & 0x7c)<<1;
 					G = (((temp1 & 0x03) << 3 ) | ((temp2&0xe0) >> 5))<<3;
 					B = (temp2 & 0x1f)<<3;
-				break;
-				
-				case 24:
+					Gray = (R*299 + G*587 + B*114 + 500) / 1000;
+					//Paint_SetPixel(i, j, Gray);
+					if(Gray>255)Gray=255;
+					if(Gray<0)Gray=0;
+					grayBuf[j*targetW+i]=Gray;
+				}
+			}
+			break;
+		case 24:
+			for (y=0,j=0;j<targetH;y++,j++)
+			{
+				for (x=0,i=0;i<targetW;x++,i++)
+				{
+					x = (UWORD)(i / ratio);
+					y = (UWORD)(j / ratio);
+					if(x >= Width) x = Width - 1;
+					if(y >= High) y = High - 1;
 					R = Matrix[(y*Width+x)*3];
 					G = Matrix[(y*Width+x)*3+1];
 					B = Matrix[(y*Width+x)*3+2];
-				break;
-				
-				case 32:
+					Gray = (R*299 + G*587 + B*114 + 500) / 1000;
+					//Paint_SetPixel(i, j, Gray);
+					if(Gray>255)Gray=255;
+					if(Gray<0)Gray=0;
+					grayBuf[j*targetW+i]=Gray;
+				}
+			}
+			break;
+		case 32:
+			for (y=0,j=0;j<targetH;y++,j++)
+			{
+				for (x=0,i=0;i<targetW;x++,i++)
+				{
+					x = (UWORD)(i / ratio);
+					y = (UWORD)(j / ratio);
+					if(x >= Width) x = Width - 1;
+					if(y >= High) y = High - 1;
 					R = Matrix[(y*Width+x)*4];
 					G = Matrix[(y*Width+x)*4+1];
 					B = Matrix[(y*Width+x)*4+2];
-				break;
-				
-				default:
-				break;
+					Gray = (R*299 + G*587 + B*114 + 500) / 1000;
+					//Paint_SetPixel(i, j, Gray);
+					if(Gray>255)Gray=255;
+					if(Gray<0)Gray=0;
+					grayBuf[j*targetW+i]=Gray;
+				}
 			}
-		
-			Gray = (R*299 + G*587 + B*114 + 500) / 1000;
-            //Paint_SetPixel(i, j, Gray);
-			if(Gray>255)Gray=255;
-			if(Gray<0)Gray=0;
-			grayBuf[j*targetW+i]=Gray;
-		}
+			break;
+		default:
+			break;
 	}
+//	for (y=0,j=0;j<targetH;y++,j++)
+//	{
+// 		for (x=0,i=0;i<targetW;x++,i++)
+//		{
+//			x = (UWORD)(i / ratio);
+//			y = (UWORD)(j / ratio);
+//			if(x >= Width) x = Width - 1;
+//			if(y >= High) y = High - 1;
+//			switch(bmp_BitCount)
+//			{
+//				case 1:
+//				case 4:
+//				case 8:
+//					R = palette[Matrix[(y*Width+x)]].rgbRed;
+//					G = palette[Matrix[(y*Width+x)]].rgbGreen;
+//					B = palette[Matrix[(y*Width+x)]].rgbBlue;
+//				break;
+//				
+//				case 16:
+//					temp1 = Matrix[(y*Width+x)*2];
+//					temp2 = Matrix[(y*Width+x)*2+1];
+//					R = (temp1 & 0x7c)<<1;
+//					G = (((temp1 & 0x03) << 3 ) | ((temp2&0xe0) >> 5))<<3;
+//					B = (temp2 & 0x1f)<<3;
+//				break;
+//				
+//				case 24:
+//					R = Matrix[(y*Width+x)*3];
+//					G = Matrix[(y*Width+x)*3+1];
+//					B = Matrix[(y*Width+x)*3+2];
+//				break;
+//				
+//				case 32:
+//					R = Matrix[(y*Width+x)*4];
+//					G = Matrix[(y*Width+x)*4+1];
+//					B = Matrix[(y*Width+x)*4+2];
+//				break;
+//				
+//				default:
+//				break;
+//			}
+//		
+//			Gray = (R*299 + G*587 + B*114 + 500) / 1000;
+//            //Paint_SetPixel(i, j, Gray);
+//			if(Gray>255)Gray=255;
+//			if(Gray<0)Gray=0;
+//			grayBuf[j*targetW+i]=Gray;
+//		}
+//	}
 
 	if(bitCount>=8){
 		if(Paint.BitsPerPixel == 1){
@@ -506,13 +596,13 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
         return -1;
     }
 	//This is old code, but allocate imageSize byte memory is more reasonable
-	bmp_dst_buf = (UBYTE*)calloc(1,total_length);
-	grayBuf = (UBYTE*)calloc(1,total_length);
-	//bmp_dst_buf = (UBYTE*)calloc(1,imageSize);
-    if(bmp_dst_buf == NULL||grayBuf==NULL){
-        Debug("Load > malloc bmp out of memory!\n");
-        return -2;
-    }
+//	bmp_dst_buf = (UBYTE*)calloc(1,total_length);
+//	grayBuf = (UBYTE*)calloc(1,total_length);
+//	//bmp_dst_buf = (UBYTE*)calloc(1,imageSize);
+//    if(bmp_dst_buf == NULL||grayBuf==NULL){
+//        Debug("Load > malloc bmp out of memory!\n");
+//        return -2;
+//    }
 
 	 //Jump to data area
     fseek(fp, FileHead.bOffset, SEEK_SET);
@@ -546,13 +636,6 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
 
 			//this is old code, will likely result in memory leak if use 1bp source bmp image
 			 
-			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			if(bmp_dst_buf == NULL || grayBuf == NULL)
-			{
-				Debug("Load > malloc bmp out of memory!\n");
-				return -5;
-			}
 			
 		break;
 		
@@ -565,14 +648,6 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
 				return -5;
 			}
 			//this is old code, will likely result in memory leak if use 4bp source bmp image
-			
-			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			if(bmp_dst_buf == NULL||grayBuf==NULL)
-			{
-				Debug("Load > malloc bmp out of memory!\n");
-				return -5;
-			}
 			
 		break;
 		
@@ -590,6 +665,14 @@ UBYTE GUI_ReadBmp(const char *path, UWORD x, UWORD y)
 		
 		default:
 		break;
+	}
+
+	bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight * 4);
+	grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
+	if(bmp_dst_buf == NULL || grayBuf == NULL)
+	{
+		Debug("Load > malloc bmp out of memory!\n");
+		return -5;
 	}
 
 	Bitmap_format_Matrix(bmp_dst_buf,bmp_src_buf);
@@ -686,13 +769,13 @@ UBYTE GUI_ReadBmp2(const char *path, UWORD x, UWORD y, UWORD width, UWORD height
         return -1;
     }
 	//This is old code, but allocate imageSize byte memory is more reasonable
-	bmp_dst_buf = (UBYTE*)calloc(1,total_length);
-	grayBuf = (UBYTE*)calloc(1,total_length);
-	//bmp_dst_buf = (UBYTE*)calloc(1,imageSize);
-    if(bmp_dst_buf == NULL||grayBuf==NULL){
-        Debug("Load > malloc bmp out of memory!\n");
-        return -2;
-    }
+//	bmp_dst_buf = (UBYTE*)calloc(1,total_length);
+//	grayBuf = (UBYTE*)calloc(1,total_length);
+//	//bmp_dst_buf = (UBYTE*)calloc(1,imageSize);
+//    if(bmp_dst_buf == NULL||grayBuf==NULL){
+//        Debug("Load > malloc bmp out of memory!\n");
+//        return -2;
+//    }
 
 	 //Jump to data area
     fseek(fp, FileHead.bOffset, SEEK_SET);
@@ -726,13 +809,13 @@ UBYTE GUI_ReadBmp2(const char *path, UWORD x, UWORD y, UWORD width, UWORD height
 
 			//this is old code, will likely result in memory leak if use 1bp source bmp image
 			 
-			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			if(bmp_dst_buf == NULL || grayBuf == NULL)
-			{
-				Debug("Load > malloc bmp out of memory!\n");
-				return -5;
-			}
+//			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
+//			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
+//			if(bmp_dst_buf == NULL || grayBuf == NULL)
+//			{
+//				Debug("Load > malloc bmp out of memory!\n");
+//				return -5;
+//			}
 			
 		break;
 		
@@ -746,13 +829,6 @@ UBYTE GUI_ReadBmp2(const char *path, UWORD x, UWORD y, UWORD width, UWORD height
 			}
 			//this is old code, will likely result in memory leak if use 4bp source bmp image
 			
-			bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
-			if(bmp_dst_buf == NULL||grayBuf==NULL)
-			{
-				Debug("Load > malloc bmp out of memory!\n");
-				return -5;
-			}
 			
 		break;
 		
@@ -770,6 +846,18 @@ UBYTE GUI_ReadBmp2(const char *path, UWORD x, UWORD y, UWORD width, UWORD height
 		
 		default:
 		break;
+	}
+
+	if(InfoHead.biWidth * InfoHead.biHeight > width * height){
+		grayBuf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight);
+	}else{
+		grayBuf = (UBYTE*)calloc(1,width * height);
+	}
+	bmp_dst_buf = (UBYTE*)calloc(1,InfoHead.biWidth * InfoHead.biHeight * 4);
+	if(bmp_dst_buf == NULL||grayBuf==NULL)
+	{
+		Debug("Load > malloc bmp out of memory!\n");
+		return -5;
 	}
 
 	Bitmap_format_Matrix(bmp_dst_buf,bmp_src_buf);

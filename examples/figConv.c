@@ -28,6 +28,7 @@ void JpegToBmp( char *JpegName,char * NewBmpName)//将读取jpeg中的数据并�
  
         jpeg_stdio_src(&cinfo, fJpeg);//指定解压对象的源文件
         jpeg_read_header(&cinfo, TRUE);//读取文件信息，将图像的缺省的信息填充到cinfo结构中比便程序使用
+		cinfo.out_color_space=JCS_RGB;
         jpeg_start_decompress(&cinfo);//开始接压缩
  
         data=(unsigned char *)malloc(((cinfo.output_width* cinfo.output_components-1)/4+1)*4*cinfo.output_height);//动态分配数据存储内存
@@ -37,20 +38,37 @@ void JpegToBmp( char *JpegName,char * NewBmpName)//将读取jpeg中的数据并�
 		printf("malloc success\n");
  
         row_stride = cinfo.output_width * cinfo.output_components; //计算每行所需的空间，字节为单位
-        while (cinfo.output_scanline < cinfo.output_height)
-        {
-              int line=cinfo.output_scanline;//当前行数
- 
-              (void) jpeg_read_scanlines(&cinfo, &jpgbuf, 1);//执行该操作读取第line行数据，cinfo.output_scanline将加一，指向下一个要扫描的行
- 
-              for(int i=0;i< cinfo.output_width;i++)//循环将存储在jpgbuf缓存区的数据放入data中
-                      {      
-                              data[line*row_stride+i*cinfo.output_components+0]=jpgbuf[i*3];
-                              data[line*row_stride+i*cinfo.output_components+1]=jpgbuf[i*3+1];
-                              data[line*row_stride+i*cinfo.output_components+2]=jpgbuf[i*3+2];
-                       }
- 
-        }
+//		if(cinfo.output_components==3){
+			while (cinfo.output_scanline < cinfo.output_height)
+			{
+				  int line=cinfo.output_scanline;//当前行数
+	 
+				  (void) jpeg_read_scanlines(&cinfo, &jpgbuf, 1);//执行该操作读取第line行数据，cinfo.output_scanline将加一，指向下一个要扫描的行
+	 
+				  for(int i=0;i< cinfo.output_width;i++)//循环将存储在jpgbuf缓存区的数据放入data中
+						  {      
+								  data[line*row_stride+i*cinfo.output_components+0]=jpgbuf[i*3];
+								  data[line*row_stride+i*cinfo.output_components+1]=jpgbuf[i*3+1];
+								  data[line*row_stride+i*cinfo.output_components+2]=jpgbuf[i*3+2];
+						   }
+	 
+			}
+//		}else{
+//			while (cinfo.output_scanline < cinfo.output_height)
+//			{
+//				  int line=cinfo.output_scanline;//当前行数
+//	 
+//				  (void) jpeg_read_scanlines(&cinfo, &jpgbuf, 1);//执行该操作读取第line行数据，cinfo.output_scanline将加一，指向下一个要扫描的行
+//	 
+//				  for(int i=0;i< cinfo.output_width;i++)//循环将存储在jpgbuf缓存区的数据放入data中
+//						  {      
+//								  data[line*row_stride+i*cinfo.output_components+0]=jpgbuf[i];
+//								  data[line*row_stride+i*cinfo.output_components+1]=jpgbuf[i];
+//								  data[line*row_stride+i*cinfo.output_components+2]=jpgbuf[i];
+//						   }
+//	 
+//			}
+//		}
        
         free(jpgbuf);
 //填充文件头信息

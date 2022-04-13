@@ -14,12 +14,12 @@ TARGET = epd
 CC = gcc
 
 MSG = -g -O0 -Wall
-DEBUG = -D USE_DEBUG
+DEBUG = -D USE_DEBUG -DEnhance
 STD = -std=c99
 
-CFLAGS += $(MSG)  $(STD)
+CFLAGS += $(MSG)  $(STD) -I/usr/include/freetype2
 
-LIB = -lbcm2835 -lm -lrt -lpthread -lcurl -ljpeg
+LIB = -lbcm2835 -lm -lrt -lpthread -lcurl -ljpeg -lfreetype
 
 
 ${TARGET}:${OBJ_O}

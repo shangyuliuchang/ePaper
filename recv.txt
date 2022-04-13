@@ -1,6 +1,6 @@
 HTTP/1.1 200 OK
 Server: nginx
-Date: Thu, 31 Mar 2022 06:10:45 GMT
+Date: Wed, 13 Apr 2022 05:38:03 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -11,7 +11,5 @@ Access-Control-Allow-Headers: *
 Access-Control-Request-Headers: *
 Access-Control-Allow-Credentials: true
 
-28e
-{"cityid":"101020200","date":"2022-03-31","week":"\u661f\u671f\u56db","update_time":"2022-03-31 13:15","city":"\u95f5\u884c","cityEn":"minhang","country":"\u4e2d\u56fd","countryEn":"China","wea":"\u591a\u4e91","wea_img":"yun","tem":"13","tem1":"15","tem2":"7","win":"\u5317\u98ce","win_speed":"3\u7ea7","win_meter":"12km\/h","humidity":"63%","visibility":"15km","pressure":"1027","air":"32","air_pm25":"32","air_level":"\u4f18","air_tips":"\u7a7a\u6c14\u5f88\u597d\uff0c\u53ef\u4ee5\u5916\u51fa\u6d3b\u52a8\uff0c\u547c\u5438\u65b0\u9c9c\u7a7a\u6c14\uff0c\u62e5\u62b1\u5927\u81ea\u7136\uff01","alarm":{"alarm_type":"","alarm_level":"","alarm_content":""}}
-0
-
+538
+{"cityid":"101020200","date":"2022-04-13","week":"\u661f\u671f\u4e09","update_time":"2022-04-13 13:05","city":"\u95f5\u884c","cityEn":"minhang","country":"\u4e2d\u56fd","countryEn":"China","wea":"\u591a\u4e91","wea_img":"yun","tem":"15","tem1":"16","tem2":"14","win":"\u5317\u98ce","win_speed":"1\u7ea7","win_meter":"5km\/h","humidity":"92%","visibility":"7km","pressure":"1008","air":"19","air_pm25":"19","air_level":"\u4f18","air_tips":"\u7a7a\u6c14\u5f88\u597d\uff0c\u53ef\u4ee5\u5916\u51fa\u6d3b\u52a8\uff0c\u547c\u5438\u65b0\u9c9c\u7a7a\u6c14\uff0c\u62e5\u62b1\u5927\u81ea\u7136\uff01","alarm":{"alarm_type":"\u96f7\u7535","alarm_level":"\u9ec4\u8272","alarm_title":"\u4e0a\u6d77\u5e02\u95f5\u884c\u533a\u53d1\u5e03\u96f7\u7535\u9ec4\u8272\u9884\u8b66","alarm_content":"\u95f5\u884c\u533a\u6c14\u8c61\u5c402022\u5e7404\u670813\u65e513\u65f616\u5206\u53d1\u5e03\u96f7\u7535\u9ec4\u8272\u9884\u8b66[\u2162\u7ea7\/\u8f83\u91cd]\uff1a\u9884\u8ba124\u5c0f\u65f6\u5185\u672c\u533a\u5927\u90e8\u5206\u8857\u9547\uff08\u5de5\u4e1a\u56ed\u533a\uff09\u5c06\u53d1\u751f\u96f7\u7535\u6d3b\u52a8\uff0c\u5e76\u4f3

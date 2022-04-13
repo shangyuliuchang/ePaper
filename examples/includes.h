@@ -41,7 +41,9 @@
 #include <iconv.h>
 #include <jpeglib.h>
 #include "../examples/figConv.h"
-
-
-
+#include <ft2build.h>
+#include FT_FREETYPE_H
+extern FT_Library library;
+extern FT_Face face;
+extern int dispTextNum;
 #endif

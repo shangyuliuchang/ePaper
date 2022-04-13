@@ -40,7 +40,8 @@
 #if DEBUG
 	#define Debug(fmt,...) printf("%s[%d]:"fmt,__FILE__,__LINE__,##__VA_ARGS__)
 #else
-	#define Debug(fmt,...) printf(fmt,##__VA_ARGS__)
+	#define Debug(fmt,...) 
+	//#define Debug(fmt,...) printf(fmt,##__VA_ARGS__)
 #endif
 
 #endif

@@ -13,6 +13,8 @@ UBYTE *Refresh_Frame_Buf = NULL;
 
 UBYTE *Panel_Frame_Buf = NULL;
 UBYTE *Panel_Area_Frame_Buf = NULL;
+FT_Library library;
+FT_Face face;
 
 bool Four_Byte_Align = false;
 
@@ -33,6 +35,7 @@ int humidity;
 int weather;
 int refreshSentence;
 int refreshFig;
+int dispTextNum;
 
 void *thread(void *arg)
 {
@@ -89,6 +92,7 @@ void Handler(int signo)
 int main(int argc, char *argv[])
 {
     //Exception handling:ctrl + c
+	curl_global_init(CURL_GLOBAL_ALL);
     signal(SIGINT, Handler);
 
     if (DEV_Module_Init() != 0)
@@ -101,7 +105,12 @@ int main(int argc, char *argv[])
     VCOM = (UWORD)(fabs(temp) * 1000);
     epd_mode = 0;
     Dev_Info = EPD_IT8951_Init(VCOM);
+	FT_Init_FreeType(&library);
+	FT_New_Face(library, "font/Noto_Sans_SC/NotoSansSC-Light.otf", 0, &face);
+	FT_Set_Pixel_Sizes(face, 48, 48);
+//	FT_Set_Char_Size(face, 0, 12*64, 300, 300);
 
+	Cancle_Enhance_Driving_Capability();
 #if (Enhance)
     Debug("Attention! Enhanced driving ability, only used when the screen is blurred\r\n");
     Enhance_Driving_Capability();

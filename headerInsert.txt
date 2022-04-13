@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 19157
+Server: nginx
+Content-Type: image/png
+Last-Modified: Wed, 14 Mar 2012 04:05:04 GMT
+ETag: "4f6018f0-4ad5"
+Expires: Mon, 11 Apr 2022 16:58:09 GMT
+Cache-Control: max-age=300
+Fastly-Original-Body-Size: 19157
+Accept-Ranges: bytes
+Date: Mon, 11 Apr 2022 16:53:09 GMT
+Via: 1.1 varnish
+Age: 0
+X-Served-By: cache-nrt18345-NRT
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1649695989.804714,VS0,VE747
+
